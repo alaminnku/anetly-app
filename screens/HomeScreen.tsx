@@ -23,7 +23,7 @@ export default function HomeScreen() {
       <ScrollView style={{ backgroundColor: "#ffffff" }}>
         <Categories />
 
-        {/* Features rows */}
+        {/* Featured rows */}
       </ScrollView>
     </SafeAreaView>
   );

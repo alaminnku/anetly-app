@@ -8,14 +8,14 @@ export default function Categories() {
       horizontal
       showsHorizontalScrollIndicator={false}
     >
-      <Category imageUrl="../../assets/logo.avif" title="Cat 1" />
-      <Category imageUrl="../../assets/logo.avif" title="Cat 2" />
-      <Category imageUrl="../../assets/logo.avif" title="Cat2" />
-      <Category imageUrl="../../assets/logo.avif" title="Cat2" />
-      <Category imageUrl="../../assets/logo.avif" title="Cat2" />
-      <Category imageUrl="../../assets/logo.avif" title="Cat2" />
-      <Category imageUrl="../../assets/logo.avif" title="Cat2" />
-      <Category imageUrl="../../assets/logo.avif" title="Cat2" />
+      <Category imageUrl="../../assets/logo.avif" title="Pizza" />
+      <Category imageUrl="../../assets/logo.avif" title="Thai" />
+      <Category imageUrl="../../assets/logo.avif" title="Asian" />
+      <Category imageUrl="../../assets/logo.avif" title="Sushi" />
+      <Category imageUrl="../../assets/logo.avif" title="Burger" />
+      <Category imageUrl="../../assets/logo.avif" title="Chicken" />
+      <Category imageUrl="../../assets/logo.avif" title="Beef" />
+      <Category imageUrl="../../assets/logo.avif" title="Others" />
     </ScrollView>
   );
 }

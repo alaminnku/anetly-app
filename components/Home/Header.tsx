@@ -9,10 +9,11 @@ export default function Header() {
 
         <View>
           <Text style={styles.delivery}>Deliver now</Text>
-          <Text style={styles.location}>
-            Current location
+
+          <View style={styles.location}>
+            <Text style={styles.location_text}>Current location</Text>
             <ChevronDownIcon size={20} color="#00ccbb" />
-          </Text>
+          </View>
         </View>
       </View>
 
@@ -51,7 +52,13 @@ const styles = StyleSheet.create({
   },
 
   location: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  location_text: {
     fontWeight: "bold",
     fontSize: 20,
+    marginRight: 5,
   },
 });
