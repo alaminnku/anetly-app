@@ -4,6 +4,7 @@ import { SafeAreaView, ScrollView } from "react-native";
 import Search from "../components/Home/Search";
 import Categories from "../components/Home/Categories";
 import Header from "../components/Home/Header";
+import FeaturedRows from "../components/Home/FeaturedRows";
 
 export default function HomeScreen() {
   // Create navigation
@@ -20,10 +21,10 @@ export default function HomeScreen() {
     <SafeAreaView style={{ backgroundColor: "#ffffff" }}>
       <Header />
       <Search />
+
       <ScrollView style={{ backgroundColor: "#ffffff" }}>
         <Categories />
-
-        {/* Featured rows */}
+        <FeaturedRows />
       </ScrollView>
     </SafeAreaView>
   );
