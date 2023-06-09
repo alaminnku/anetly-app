@@ -17,10 +17,10 @@ export default function HomeScreen() {
   }, []);
 
   return (
-    <SafeAreaView style={{ backgroundColor: "white" }}>
+    <SafeAreaView style={{ backgroundColor: "#ffffff" }}>
       <Header />
       <Search />
-      <ScrollView>
+      <ScrollView style={{ backgroundColor: "#ffffff" }}>
         <Categories />
 
         {/* Features rows */}
