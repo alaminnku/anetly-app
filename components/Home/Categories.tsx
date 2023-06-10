@@ -8,6 +8,7 @@ export default function Categories() {
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{
         paddingLeft: 15,
+        paddingRight: 5,
         marginVertical: 15,
       }}
     >

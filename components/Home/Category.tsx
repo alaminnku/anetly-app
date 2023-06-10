@@ -17,7 +17,7 @@ export default function Category({ imageUrl, title }: ICategoryProps) {
 const styles = StyleSheet.create({
   category: {
     position: "relative",
-    marginRight: 15,
+    marginRight: 10,
   },
 
   image: {
