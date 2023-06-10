@@ -1,11 +1,11 @@
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView } from "react-native";
 import Restaurant from "./Restaurant";
 
 export default function Restaurants() {
   return (
     <ScrollView
-      style={styles.restaurants}
       horizontal
+      contentContainerStyle={{ paddingLeft: 15 }}
       showsHorizontalScrollIndicator={false}
     >
       <Restaurant
@@ -15,7 +15,7 @@ export default function Restaurants() {
         rating={4.5}
         genre="Japanese"
         address="123 Main St."
-        short_description="This is a description"
+        description="This is a description"
         dishes={[]}
         longitude={20}
         latitude={0}
@@ -28,7 +28,7 @@ export default function Restaurants() {
         rating={4.5}
         genre="Japanese"
         address="123 Main St."
-        short_description="This is a description"
+        description="This is a description"
         dishes={[]}
         longitude={20}
         latitude={0}
@@ -41,7 +41,7 @@ export default function Restaurants() {
         rating={4.5}
         genre="Japanese"
         address="123 Main St."
-        short_description="This is a description"
+        description="This is a description"
         dishes={[]}
         longitude={20}
         latitude={0}
@@ -54,7 +54,7 @@ export default function Restaurants() {
         rating={4.5}
         genre="Japanese"
         address="123 Main St."
-        short_description="This is a description"
+        description="This is a description"
         dishes={[]}
         longitude={20}
         latitude={0}
@@ -62,9 +62,3 @@ export default function Restaurants() {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  restaurants: {
-    marginTop: 10,
-  },
-});

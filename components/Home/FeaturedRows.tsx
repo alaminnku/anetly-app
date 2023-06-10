@@ -1,9 +1,8 @@
-import { View, StyleSheet } from "react-native";
 import FeaturedRow from "./FeaturedRow";
 
 export default function FeaturedRows() {
   return (
-    <View style={styles.featuredRows}>
+    <>
       <FeaturedRow
         id="1"
         title="Featured"
@@ -19,13 +18,6 @@ export default function FeaturedRows() {
         title="Offers near you!"
         description="Paid placements from our partners"
       />
-    </View>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  featuredRows: {
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-});

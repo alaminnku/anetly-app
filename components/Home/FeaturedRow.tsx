@@ -1,5 +1,4 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
-import { ArrowRightIcon } from "react-native-heroicons/outline";
+import { View, Text, StyleSheet } from "react-native";
 import Restaurants from "./Restaurants";
 
 interface IFeaturedRowProps {
@@ -11,12 +10,10 @@ interface IFeaturedRowProps {
 export default function FeaturedRow({ title, description }: IFeaturedRowProps) {
   return (
     <View style={styles.featuredRow}>
-      <View style={styles.title}>
-        <Text style={styles.title_text}>{title}</Text>
-        <ArrowRightIcon color="#00ccbb" size={20} />
+      <View style={styles.content}>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.description}>{description}</Text>
       </View>
-
-      <Text style={styles.description}>{description}</Text>
 
       <Restaurants />
     </View>
@@ -25,21 +22,18 @@ export default function FeaturedRow({ title, description }: IFeaturedRowProps) {
 
 const styles = StyleSheet.create({
   featuredRow: {
-    marginBottom: 15,
+    marginBottom: 20,
   },
+
+  content: { paddingHorizontal: 15, marginBottom: 15 },
 
   title: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-
-  title_text: {
     fontWeight: "bold",
     fontSize: 18,
-    marginRight: 5,
+    marginBottom: 5,
   },
 
   description: {
-    color: "#d4d2d2",
+    color: "#6b7280",
   },
 });

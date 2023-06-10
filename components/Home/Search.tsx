@@ -22,8 +22,7 @@ export default function Search() {
 
 const styles = StyleSheet.create({
   search: {
-    paddingLeft: 15,
-    paddingRight: 15,
+    paddingHorizontal: 15,
     marginBottom: 15,
     flexDirection: "row",
     alignItems: "center",

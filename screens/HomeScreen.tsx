@@ -22,7 +22,10 @@ export default function HomeScreen() {
       <Header />
       <Search />
 
-      <ScrollView style={{ backgroundColor: "#ffffff" }}>
+      <ScrollView
+        style={{ backgroundColor: "#f3f4f6" }}
+        contentContainerStyle={{ paddingBottom: 100 }}
+      >
         <Categories />
         <FeaturedRows />
       </ScrollView>
