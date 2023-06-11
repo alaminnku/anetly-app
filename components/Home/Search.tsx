@@ -15,15 +15,15 @@ export default function Search() {
         />
       </View>
 
-      <AdjustmentsHorizontalIcon color="#00ccbb" />
+      <AdjustmentsHorizontalIcon color="#3b82f6" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   search: {
-    paddingHorizontal: 15,
-    marginBottom: 15,
+    margin: 15,
+    marginTop: 0,
     flexDirection: "row",
     alignItems: "center",
   },

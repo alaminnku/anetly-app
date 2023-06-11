@@ -12,12 +12,12 @@ export default function Header() {
 
           <View style={styles.location}>
             <Text style={styles.location_text}>Current location</Text>
-            <ChevronDownIcon size={20} color="#00ccbb" />
+            <ChevronDownIcon size={20} color="#3b82f6" />
           </View>
         </View>
       </View>
 
-      <UserIcon size={35} color="#00ccbb" />
+      <UserIcon size={35} color="#3b82f6" />
     </View>
   );
 }
@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 15,
-    marginBottom: 15,
+    margin: 15,
+    marginTop: 0,
     backgroundColor: "white",
     justifyContent: "space-between",
   },

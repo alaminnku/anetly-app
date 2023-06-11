@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 
-  content: { paddingHorizontal: 15, marginBottom: 15 },
+  content: { margin: 15, marginTop: 0 },
 
   title: {
     fontWeight: "bold",

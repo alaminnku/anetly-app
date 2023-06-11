@@ -1,11 +1,11 @@
-import { ScrollView } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import Restaurant from "./Restaurant";
 
 export default function Restaurants() {
   return (
     <ScrollView
+      style={styles.restaurants}
       horizontal
-      contentContainerStyle={{ paddingLeft: 15 }}
       showsHorizontalScrollIndicator={false}
     >
       <Restaurant
@@ -62,3 +62,9 @@ export default function Restaurants() {
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  restaurants: {
+    marginLeft: 15,
+  },
+});

@@ -1,16 +1,12 @@
-import { ScrollView } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import Category from "./Category";
 
 export default function Categories() {
   return (
     <ScrollView
+      style={styles.categories}
       horizontal
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={{
-        paddingLeft: 15,
-        paddingRight: 5,
-        marginVertical: 15,
-      }}
     >
       <Category imageUrl="../../assets/logo.avif" title="Pizza" />
       <Category imageUrl="../../assets/logo.avif" title="Thai" />
@@ -23,3 +19,10 @@ export default function Categories() {
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  categories: {
+    margin: 15,
+    marginRight: 5,
+  },
+});
