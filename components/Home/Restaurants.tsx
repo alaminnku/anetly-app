@@ -1,64 +1,33 @@
 import { ScrollView, StyleSheet } from "react-native";
 import Restaurant from "./Restaurant";
+import { IRestaurant } from "../../types";
 
-export default function Restaurants() {
+interface IRestaurantsProps {
+  restaurants: IRestaurant[];
+}
+
+export default function Restaurants({ restaurants }: IRestaurantsProps) {
   return (
     <ScrollView
       style={styles.restaurants}
       horizontal
       showsHorizontalScrollIndicator={false}
     >
-      <Restaurant
-        id="1"
-        imageUrl=""
-        title="Sushi"
-        rating={4.5}
-        genre="Japanese"
-        address="123 Main St."
-        description="This is a description"
-        dishes={[]}
-        longitude={20}
-        latitude={0}
-      />
-
-      <Restaurant
-        id="1"
-        imageUrl=""
-        title="Sushi"
-        rating={4.5}
-        genre="Japanese"
-        address="123 Main St."
-        description="This is a description"
-        dishes={[]}
-        longitude={20}
-        latitude={0}
-      />
-
-      <Restaurant
-        id="1"
-        imageUrl=""
-        title="Sushi"
-        rating={4.5}
-        genre="Japanese"
-        address="123 Main St."
-        description="This is a description"
-        dishes={[]}
-        longitude={20}
-        latitude={0}
-      />
-
-      <Restaurant
-        id="1"
-        imageUrl=""
-        title="Sushi"
-        rating={4.5}
-        genre="Japanese"
-        address="123 Main St."
-        description="This is a description"
-        dishes={[]}
-        longitude={20}
-        latitude={0}
-      />
+      {restaurants.map((restaurant) => (
+        <Restaurant
+          key={restaurant._id}
+          _id={restaurant._id}
+          logo={restaurant.logo}
+          name={restaurant.name}
+          rating={restaurant.rating}
+          category={restaurant.category}
+          address={restaurant.address}
+          description={restaurant.description}
+          dishes={restaurant.dishes}
+          longitude={restaurant.longitude}
+          latitude={restaurant.latitude}
+        />
+      ))}
     </ScrollView>
   );
 }

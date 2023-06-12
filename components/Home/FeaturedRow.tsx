@@ -1,21 +1,26 @@
 import { View, Text, StyleSheet } from "react-native";
 import Restaurants from "./Restaurants";
+import { IRestaurant } from "../../types";
 
 interface IFeaturedRowProps {
-  id: string;
-  title: string;
+  name: string;
   description: string;
+  restaurants: IRestaurant[];
 }
 
-export default function FeaturedRow({ title, description }: IFeaturedRowProps) {
+export default function FeaturedRow({
+  name,
+  description,
+  restaurants,
+}: IFeaturedRowProps) {
   return (
     <View style={styles.featuredRow}>
       <View style={styles.content}>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.name}>{name}</Text>
         <Text style={styles.description}>{description}</Text>
       </View>
 
-      <Restaurants />
+      <Restaurants restaurants={restaurants} />
     </View>
   );
 }
@@ -27,7 +32,7 @@ const styles = StyleSheet.create({
 
   content: { margin: 15, marginTop: 0 },
 
-  title: {
+  name: {
     fontWeight: "bold",
     fontSize: 18,
     marginBottom: 5,

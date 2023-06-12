@@ -1,26 +1,17 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { StarIcon } from "react-native-heroicons/solid";
 import { MapPinIcon } from "react-native-heroicons/outline";
+import { IRestaurant } from "../../types";
+import { urlFor } from "../../sanity";
 
-interface IRestaurantProps {
-  id: string;
-  imageUrl: string;
-  title: string;
-  rating: number;
-  genre: string;
-  address: string;
-  description: string;
-  dishes: [];
-  longitude: number;
-  latitude: number;
-}
+interface IRestaurantProps extends IRestaurant {}
 
 export default function Restaurant({
-  id,
-  imageUrl,
-  title,
+  _id,
+  logo,
+  name,
   rating,
-  genre,
+  category,
   address,
   description,
   dishes,
@@ -29,16 +20,19 @@ export default function Restaurant({
 }: IRestaurantProps) {
   return (
     <TouchableOpacity style={styles.restaurant}>
-      <Image style={styles.image} source={require("../../assets/sushi.jpg")} />
+      <Image
+        style={styles.image}
+        source={{ uri: urlFor(logo.asset._ref).url() }}
+      />
 
       <View style={styles.content}>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title}>{name}</Text>
 
         <View style={styles.rating}>
           <StarIcon color="green" opacity={0.5} size={22} />
 
           <Text style={styles.rating_and_genre}>
-            {rating} . <Text style={styles.genre}>{genre}</Text>
+            {rating} . <Text style={styles.genre}>{category.name}</Text>
           </Text>
         </View>
 

@@ -1,23 +1,51 @@
+import { useEffect, useState } from "react";
 import FeaturedRow from "./FeaturedRow";
+import sanityClient from "../../sanity";
+import { IRestaurant } from "../../types";
+
+interface IFeaturedCategory {
+  _id: string;
+  name: string;
+  description: string;
+  restaurants: IRestaurant[];
+}
 
 export default function FeaturedRows() {
+  const [featuredCategories, setFeaturedCategories] = useState<
+    IFeaturedCategory[]
+  >([]);
+
+  // Fetch featured restaurants
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "featured"] {
+          _id, 
+          name,
+          description,
+          restaurants[]-> {
+          ...,
+          category -> {
+            name
+          },
+          dishes[] ->
+          }
+      }`
+      )
+      .then((data) => setFeaturedCategories(data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <>
-      <FeaturedRow
-        id="1"
-        title="Featured"
-        description="Paid placements from our partners"
-      />
-      <FeaturedRow
-        id="2"
-        title="Tasty discounts"
-        description="Paid placements from our partners"
-      />
-      <FeaturedRow
-        id="3"
-        title="Offers near you!"
-        description="Paid placements from our partners"
-      />
+      {featuredCategories.map((featuredCategory) => (
+        <FeaturedRow
+          key={featuredCategory._id}
+          name={featuredCategory.name}
+          description={featuredCategory.description}
+          restaurants={featuredCategory.restaurants}
+        />
+      ))}
     </>
   );
 }
