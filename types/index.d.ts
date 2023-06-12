@@ -1,3 +1,14 @@
+export type RootStackParamList = {
+  Home: undefined;
+  Restaurant: IRestaurant;
+};
+
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends RootStackParamList {}
+  }
+}
+
 interface IDish {
   _id: string;
   name: string;

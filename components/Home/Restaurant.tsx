@@ -3,6 +3,7 @@ import { StarIcon } from "react-native-heroicons/solid";
 import { MapPinIcon } from "react-native-heroicons/outline";
 import { IRestaurant } from "../../types";
 import { urlFor } from "../../config/sanity";
+import { useNavigation } from "@react-navigation/native";
 
 interface IRestaurantProps extends IRestaurant {}
 
@@ -18,8 +19,27 @@ export default function Restaurant({
   longitude,
   latitude,
 }: IRestaurantProps) {
+  // Navigation
+  const { navigate } = useNavigation();
+
+  // Handle restaurant press
+  function handlePress() {
+    navigate("Restaurant", {
+      _id,
+      logo,
+      name,
+      rating,
+      category,
+      address,
+      description,
+      dishes,
+      longitude,
+      latitude,
+    });
+  }
+
   return (
-    <TouchableOpacity style={styles.restaurant}>
+    <TouchableOpacity style={styles.restaurant} onPress={handlePress}>
       <Image
         style={styles.image}
         source={{ uri: urlFor(logo.asset._ref).url() }}
