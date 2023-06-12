@@ -1,6 +1,6 @@
 import { Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import { ICategory } from "../../types";
-import { urlFor } from "../../sanity";
+import { urlFor } from "../../config/sanity";
 
 interface ICategoryProps extends ICategory {}
 

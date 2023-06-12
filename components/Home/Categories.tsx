@@ -1,7 +1,7 @@
 import { ScrollView, StyleSheet } from "react-native";
 import Category from "./Category";
 import { useEffect, useState } from "react";
-import sanityClient from "../../sanity";
+import sanityClient from "../../config/sanity";
 import { ICategory } from "../../types";
 
 export default function Categories() {

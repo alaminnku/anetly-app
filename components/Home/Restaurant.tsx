@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { StarIcon } from "react-native-heroicons/solid";
 import { MapPinIcon } from "react-native-heroicons/outline";
 import { IRestaurant } from "../../types";
-import { urlFor } from "../../sanity";
+import { urlFor } from "../../config/sanity";
 
 interface IRestaurantProps extends IRestaurant {}
 
