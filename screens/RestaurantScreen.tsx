@@ -1,18 +1,10 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import {
-  View,
-  Text,
-  ScrollView,
-  Image,
-  StyleSheet,
-  Dimensions,
-  TouchableOpacity,
-} from "react-native";
+import { Text, ScrollView, StyleSheet, View } from "react-native";
 import { RootStackParamList } from "../types";
-import { urlFor } from "../config/sanity";
-import { ArrowLeftIcon } from "react-native-heroicons/solid";
-import { useNavigation } from "@react-navigation/native";
 import RestaurantHeader from "../components/Restaurant/RestaurantHeader";
+import RestaurantDetails from "../components/Restaurant/RestaurantDetails";
+import Allergy from "../components/Restaurant/Allergy";
+import Menu from "../components/Restaurant/Menu";
 
 interface IRestaurantScreenProps
   extends NativeStackScreenProps<RootStackParamList, "Restaurant"> {}
@@ -38,30 +30,19 @@ export default function RestaurantScreen({
     <ScrollView>
       <RestaurantHeader logo={logo} />
 
-      <Text>{name}</Text>
+      <RestaurantDetails
+        name={name}
+        rating={rating}
+        category={category}
+        address={address}
+        description={description}
+      />
+
+      <Allergy />
+
+      <Menu dishes={dishes} />
     </ScrollView>
   );
 }
 
-const styles = StyleSheet.create({
-  image_and_back_button: {
-    position: "relative",
-  },
-
-  image: {
-    width: Dimensions.get("window").width,
-    height: 200,
-  },
-
-  back_button: {
-    position: "absolute",
-    top: 60,
-    left: 20,
-    backgroundColor: "#f1f5f9",
-    borderRadius: 100,
-    width: 40,
-    height: 40,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const styles = StyleSheet.create({});
