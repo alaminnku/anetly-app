@@ -28,3 +28,13 @@ export interface IRestaurant {
   latitude: number;
   longitude: number;
 }
+
+export interface ICategory {
+  _id: string;
+  name: string;
+  image: {
+    asset: {
+      _ref: string;
+    };
+  };
+}

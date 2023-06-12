@@ -1,15 +1,18 @@
 import { Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import { ICategory } from "../../types";
+import { urlFor } from "../../sanity";
 
-interface ICategoryProps {
-  imageUrl: string;
-  title: string;
-}
+interface ICategoryProps extends ICategory {}
 
-export default function Category({ imageUrl, title }: ICategoryProps) {
+export default function Category({ name, image }: ICategoryProps) {
   return (
     <TouchableOpacity style={styles.category}>
-      <Image style={styles.image} source={require("../../assets/sushi.jpg")} />
-      <Text style={styles.title}>{title}</Text>
+      <Image
+        style={styles.image}
+        source={{ uri: urlFor(image.asset._ref).url() }}
+      />
+
+      <Text style={styles.title}>{name}</Text>
     </TouchableOpacity>
   );
 }

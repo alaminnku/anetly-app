@@ -1,21 +1,41 @@
 import { ScrollView, StyleSheet } from "react-native";
 import Category from "./Category";
+import { useEffect, useState } from "react";
+import sanityClient from "../../sanity";
+import { ICategory } from "../../types";
 
 export default function Categories() {
+  const [categories, setCategories] = useState<ICategory[]>([]);
+
+  // Fetch categories
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `
+        *[_type == "category"] {
+          _id,
+          name,
+          image,
+        }`
+      )
+      .then((data) => setCategories(data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <ScrollView
       style={styles.categories}
       horizontal
       showsHorizontalScrollIndicator={false}
     >
-      <Category imageUrl="../../assets/logo.avif" title="Asian" />
-      <Category imageUrl="../../assets/logo.avif" title="Thai" />
-      <Category imageUrl="../../assets/logo.avif" title="Bistro" />
-      <Category imageUrl="../../assets/logo.avif" title="Sushi" />
-      <Category imageUrl="../../assets/logo.avif" title="Burger" />
-      <Category imageUrl="../../assets/logo.avif" title="Chicken" />
-      <Category imageUrl="../../assets/logo.avif" title="Beef" />
-      <Category imageUrl="../../assets/logo.avif" title="Desert" />
+      {categories.map((category) => (
+        <Category
+          key={category._id}
+          _id={category._id}
+          name={category.name}
+          image={category.image}
+        />
+      ))}
     </ScrollView>
   );
 }
