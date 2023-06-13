@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type RootStackParamList = {
   Home: undefined;
   Restaurant: IRestaurant;
@@ -49,3 +51,9 @@ export interface ICategory {
     };
   };
 }
+
+export interface IContextProviderProps {
+  children: ReactNode;
+}
+
+export interface IBasketContext {}

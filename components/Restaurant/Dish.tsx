@@ -17,9 +17,13 @@ interface IDishProps {
 
 export default function Dish({ dish }: IDishProps) {
   const [quantity, setQuantity] = useState(1);
+  const [isPressed, setIsPressed] = useState(false);
 
   return (
-    <View style={styles.dish}>
+    <TouchableOpacity
+      style={styles.dish}
+      onPress={() => setIsPressed((currState) => !currState)}
+    >
       <View style={styles.details}>
         <View style={styles.content}>
           <Text style={styles.name}>{dish.name}</Text>
@@ -33,28 +37,30 @@ export default function Dish({ dish }: IDishProps) {
         />
       </View>
 
-      <View style={styles.controller}>
-        <TouchableOpacity
-          style={styles.minus}
-          onPress={() =>
-            setQuantity((currState) =>
-              currState > 1 ? currState - 1 : currState
-            )
-          }
-        >
-          <MinusIcon color="white" size={20} />
-        </TouchableOpacity>
+      {isPressed && (
+        <View style={styles.controller}>
+          <TouchableOpacity
+            style={styles.minus}
+            onPress={() =>
+              setQuantity((currState) =>
+                currState > 1 ? currState - 1 : currState
+              )
+            }
+          >
+            <MinusIcon color="white" size={20} />
+          </TouchableOpacity>
 
-        <Text style={styles.quantity}>{quantity}</Text>
+          <Text style={styles.quantity}>{quantity}</Text>
 
-        <TouchableOpacity
-          style={styles.plus}
-          onPress={() => setQuantity((currState) => currState + 1)}
-        >
-          <PlusIcon color="white" size={20} />
-        </TouchableOpacity>
-      </View>
-    </View>
+          <TouchableOpacity
+            style={styles.plus}
+            onPress={() => setQuantity((currState) => currState + 1)}
+          >
+            <PlusIcon color="white" size={20} />
+          </TouchableOpacity>
+        </View>
+      )}
+    </TouchableOpacity>
   );
 }
 
@@ -67,7 +73,6 @@ const styles = StyleSheet.create({
 
   details: {
     flexDirection: "row",
-    alignItems: "center",
     justifyContent: "space-between",
   },
 
@@ -99,7 +104,7 @@ const styles = StyleSheet.create({
   controller: {
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: 15,
+    marginTop: 15,
   },
 
   minus: {
