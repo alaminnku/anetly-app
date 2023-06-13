@@ -36,8 +36,6 @@ export default function FeaturedRows() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(featuredCategories);
-
   return (
     <>
       {featuredCategories.map((featuredCategory) => (

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import {
   ArrowRightIcon,
   QuestionMarkCircleIcon,
@@ -6,7 +6,7 @@ import {
 
 export default function Allergy() {
   return (
-    <View style={styles.allergy}>
+    <TouchableOpacity style={styles.allergy}>
       <View style={styles.question_and_text}>
         <QuestionMarkCircleIcon
           style={styles.question_icon}
@@ -18,7 +18,7 @@ export default function Allergy() {
       </View>
 
       <ArrowRightIcon color="#3b82f6" size={25} />
-    </View>
+    </TouchableOpacity>
   );
 }
 

@@ -13,7 +13,7 @@ export default function Menu({ dishes }: IMenuProps) {
 
       <View style={styles.dishes}>
         {dishes.map((dish) => (
-          <Dish dish={dish} />
+          <Dish key={dish._id} dish={dish} />
         ))}
       </View>
     </View>
