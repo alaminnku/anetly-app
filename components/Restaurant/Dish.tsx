@@ -10,13 +10,18 @@ import { IDish } from "../../types";
 import { urlFor } from "../../config/sanity";
 import { useState } from "react";
 import { MinusIcon, PlusIcon } from "react-native-heroicons/solid";
+import { useBasket } from "../../contexts/basket";
 
 interface IDishProps {
   dish: IDish;
 }
 
 export default function Dish({ dish }: IDishProps) {
-  const [quantity, setQuantity] = useState(1);
+  // Hooks
+  const { basket, addToBasket, removeFromBasket } = useBasket();
+  const [quantity, setQuantity] = useState(
+    basket.find((basketDish) => basketDish._id === dish._id)?.quantity || 0
+  );
   const [isPressed, setIsPressed] = useState(false);
 
   return (
@@ -41,11 +46,12 @@ export default function Dish({ dish }: IDishProps) {
         <View style={styles.controller}>
           <TouchableOpacity
             style={styles.minus}
-            onPress={() =>
+            onPress={() => {
               setQuantity((currState) =>
-                currState > 1 ? currState - 1 : currState
-              )
-            }
+                currState > 0 ? currState - 1 : currState
+              ),
+                removeFromBasket(dish);
+            }}
           >
             <MinusIcon color="white" size={20} />
           </TouchableOpacity>
@@ -54,7 +60,9 @@ export default function Dish({ dish }: IDishProps) {
 
           <TouchableOpacity
             style={styles.plus}
-            onPress={() => setQuantity((currState) => currState + 1)}
+            onPress={() => {
+              setQuantity((currState) => currState + 1), addToBasket(dish);
+            }}
           >
             <PlusIcon color="white" size={20} />
           </TouchableOpacity>

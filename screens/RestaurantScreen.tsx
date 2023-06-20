@@ -5,6 +5,7 @@ import RestaurantHeader from "../components/Restaurant/RestaurantHeader";
 import RestaurantDetails from "../components/Restaurant/RestaurantDetails";
 import Allergy from "../components/Restaurant/Allergy";
 import Menu from "../components/Restaurant/Menu";
+import Basket from "../components/Restaurant/Basket";
 
 interface IRestaurantScreenProps
   extends NativeStackScreenProps<RootStackParamList, "Restaurant"> {}
@@ -27,22 +28,30 @@ export default function RestaurantScreen({
   } = params;
 
   return (
-    <ScrollView>
-      <RestaurantHeader logo={logo} />
+    <>
+      <ScrollView style={styles.restaurant}>
+        <RestaurantHeader logo={logo} />
 
-      <RestaurantDetails
-        name={name}
-        rating={rating}
-        category={category}
-        address={address}
-        description={description}
-      />
+        <RestaurantDetails
+          name={name}
+          rating={rating}
+          category={category}
+          address={address}
+          description={description}
+        />
 
-      <Allergy />
+        <Allergy />
 
-      <Menu dishes={dishes} />
-    </ScrollView>
+        <Menu dishes={dishes} />
+      </ScrollView>
+
+      <Basket />
+    </>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  restaurant: {
+    marginBottom: 110,
+  },
+});

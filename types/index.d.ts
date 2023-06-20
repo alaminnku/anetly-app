@@ -56,4 +56,14 @@ export interface IContextProviderProps {
   children: ReactNode;
 }
 
-export interface IBasketContext {}
+export interface IBasketContext {
+  basket: IBasketItem[];
+  addToBasket: (addedDish: IDish) => void;
+  removeFromBasket: (removedDish: IDish) => void;
+  basketPriceTotal: number;
+  basketQuantityTotal: number;
+}
+
+export interface IBasketItem extends IDish {
+  quantity: number;
+}
