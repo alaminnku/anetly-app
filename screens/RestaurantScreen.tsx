@@ -42,7 +42,7 @@ export default function RestaurantScreen({
 
         <Allergy />
 
-        <Menu dishes={dishes} />
+        <Menu dishes={dishes} restaurant={{ _id, name }} />
       </ScrollView>
 
       <Basket />

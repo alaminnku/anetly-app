@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 export type RootStackParamList = {
   Home: undefined;
   Restaurant: IRestaurant;
+  Basket: undefined;
 };
 
 declare global {
@@ -56,14 +57,24 @@ export interface IContextProviderProps {
   children: ReactNode;
 }
 
-export interface IBasketContext {
-  basket: IBasketItem[];
-  addToBasket: (addedDish: IDish) => void;
-  removeFromBasket: (removedDish: IDish) => void;
-  basketPriceTotal: number;
-  basketQuantityTotal: number;
+export interface IBasketRestaurant {
+  _id: string;
+  name: string;
 }
 
-export interface IBasketItem extends IDish {
+interface IBasketDish extends IDish {
   quantity: number;
+}
+
+export interface IBasket {
+  dishes: IBasketDish[];
+  restaurant: IBasketRestaurant;
+}
+
+export interface IBasketContext {
+  basket: IBasket;
+  addToBasket: (addedDish: IDish, restaurant: IBasketRestaurant) => void;
+  removeFromBasket: (removedDish: IDish, restaurant: IBasketRestaurant) => void;
+  basketPriceTotal: number;
+  basketQuantityTotal: number;
 }

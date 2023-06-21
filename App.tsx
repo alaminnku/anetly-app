@@ -5,6 +5,7 @@ import "react-native-url-polyfill/auto";
 import RestaurantScreen from "./screens/RestaurantScreen";
 import { RootStackParamList } from "./types";
 import BasketProvider from "./contexts/basket";
+import BasketScreen from "./screens/BasketScreen";
 
 // Create stack
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -23,6 +24,11 @@ export default function App() {
             name="Restaurant"
             component={RestaurantScreen}
             options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Basket"
+            component={BasketScreen}
+            options={{ presentation: "modal" }}
           />
         </Stack.Navigator>
       </BasketProvider>

@@ -1,18 +1,23 @@
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { TouchableOpacity, Text, StyleSheet, Dimensions } from "react-native";
 import { useBasket } from "../../contexts/basket";
+import { useNavigation } from "@react-navigation/native";
+import { formatCurrencyToUSD } from "../../utils";
 
 export default function Basket() {
   // Hooks
   const { basketPriceTotal, basketQuantityTotal } = useBasket();
+  const { navigate } = useNavigation();
 
   return (
-    <View style={styles.basket}>
+    <TouchableOpacity style={styles.basket} onPress={() => navigate("Basket")}>
       <Text style={styles.basketQuantity}>{basketQuantityTotal}</Text>
 
       <Text style={styles.basketText}>View Basket</Text>
 
-      <Text style={styles.basketPrice}>${basketPriceTotal}</Text>
-    </View>
+      <Text style={styles.basketPrice}>
+        {formatCurrencyToUSD(basketPriceTotal)}
+      </Text>
+    </TouchableOpacity>
   );
 }
 

@@ -14,13 +14,18 @@ import { useBasket } from "../../contexts/basket";
 
 interface IDishProps {
   dish: IDish;
+  restaurant: {
+    _id: string;
+    name: string;
+  };
 }
 
-export default function Dish({ dish }: IDishProps) {
+export default function Dish({ dish, restaurant }: IDishProps) {
   // Hooks
   const { basket, addToBasket, removeFromBasket } = useBasket();
   const [quantity, setQuantity] = useState(
-    basket.find((basketDish) => basketDish._id === dish._id)?.quantity || 0
+    basket.dishes.find((basketDish) => basketDish._id === dish._id)?.quantity ||
+      0
   );
   const [isPressed, setIsPressed] = useState(false);
 
@@ -50,7 +55,7 @@ export default function Dish({ dish }: IDishProps) {
               setQuantity((currState) =>
                 currState > 0 ? currState - 1 : currState
               ),
-                removeFromBasket(dish);
+                removeFromBasket(dish, restaurant);
             }}
           >
             <MinusIcon color="white" size={20} />
@@ -61,7 +66,8 @@ export default function Dish({ dish }: IDishProps) {
           <TouchableOpacity
             style={styles.plus}
             onPress={() => {
-              setQuantity((currState) => currState + 1), addToBasket(dish);
+              setQuantity((currState) => currState + 1),
+                addToBasket(dish, restaurant);
             }}
           >
             <PlusIcon color="white" size={20} />
