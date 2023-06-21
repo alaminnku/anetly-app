@@ -46,9 +46,7 @@ const styles = StyleSheet.create({
   priceDetails: {
     backgroundColor: "white",
     padding: 15,
-    position: "absolute",
-    bottom: 0,
-    paddingBottom: 100,
+    paddingBottom: 65,
     width: Dimensions.get("screen").width,
   },
 

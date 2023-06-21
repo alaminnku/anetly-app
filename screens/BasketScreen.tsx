@@ -17,6 +17,6 @@ export default function BasketScreen() {
 
 const styles = StyleSheet.create({
   basket: {
-    minHeight: Dimensions.get("screen").height,
+    height: Dimensions.get("screen").height,
   },
 });

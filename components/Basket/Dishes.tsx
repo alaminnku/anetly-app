@@ -5,7 +5,6 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
 } from "react-native";
 import { formatCurrencyToUSD } from "../../utils";
 import { useBasket } from "../../contexts/basket";
@@ -23,44 +22,45 @@ export default function Dishes() {
   }
   return (
     <ScrollView style={styles.dishes}>
-      {basket.dishes.map((dish) => (
-        <View key={dish._id} style={styles.dish}>
-          <View style={styles.dishDetails}>
-            <Text style={styles.quantity}>{dish.quantity}x</Text>
+      <View>
+        {basket.dishes.map((dish) => (
+          <View key={dish._id} style={styles.dish}>
+            <View style={styles.dishDetails}>
+              <Text style={styles.quantity}>{dish.quantity}x</Text>
 
-            <Image
-              style={styles.image}
-              source={{ uri: urlFor(dish.image.asset._ref).url() }}
-            />
+              <Image
+                style={styles.image}
+                source={{ uri: urlFor(dish.image.asset._ref).url() }}
+              />
 
-            <Text numberOfLines={1}>{dish.name}</Text>
+              <Text numberOfLines={1}>{dish.name}</Text>
+            </View>
+
+            <View style={styles.priceDetails}>
+              <Text>{formatCurrencyToUSD(dish.price)}</Text>
+
+              <TouchableOpacity onPress={() => removeDish(dish._id)}>
+                <Text style={styles.remove}>Remove</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-
-          <View style={styles.priceDetails}>
-            <Text>{formatCurrencyToUSD(dish.price)}</Text>
-
-            <TouchableOpacity onPress={() => removeDish(dish._id)}>
-              <Text style={styles.remove}>Remove</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      ))}
+        ))}
+      </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   dishes: {
-    backgroundColor: "white",
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    maxHeight: 200,
+    marginBottom: 20,
   },
 
   dish: {
-    marginBottom: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
     flexDirection: "row",
     alignItems: "center",
+    backgroundColor: "white",
     justifyContent: "space-between",
   },
 
