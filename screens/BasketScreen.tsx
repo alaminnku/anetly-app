@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Dimensions } from "react-native";
+import { View } from "react-native";
 import Header from "../components/Basket/Header";
 import DeliveryDetails from "../components/Basket/DeliveryDetails";
 import Dishes from "../components/Basket/Dishes";
@@ -6,17 +6,11 @@ import PriceDetails from "../components/Basket/PriceDetails";
 
 export default function BasketScreen() {
   return (
-    <SafeAreaView style={styles.basket}>
+    <View style={{ flex: 1 }}>
       <Header />
       <DeliveryDetails />
       <Dishes />
       <PriceDetails />
-    </SafeAreaView>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  basket: {
-    height: Dimensions.get("screen").height,
-  },
-});

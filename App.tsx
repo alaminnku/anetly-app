@@ -6,6 +6,7 @@ import RestaurantScreen from "./screens/RestaurantScreen";
 import { RootStackParamList } from "./types";
 import BasketProvider from "./contexts/basket";
 import BasketScreen from "./screens/BasketScreen";
+import OrderScreen from "./screens/OrderScreen";
 
 // Create stack
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -29,6 +30,11 @@ export default function App() {
             name="Basket"
             component={BasketScreen}
             options={{ presentation: "modal", headerShown: false }}
+          />
+          <Stack.Screen
+            name="Order"
+            component={OrderScreen}
+            options={{ presentation: "fullScreenModal", headerShown: false }}
           />
         </Stack.Navigator>
       </BasketProvider>

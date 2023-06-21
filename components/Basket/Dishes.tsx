@@ -22,30 +22,28 @@ export default function Dishes() {
   }
   return (
     <ScrollView style={styles.dishes}>
-      <View>
-        {basket.dishes.map((dish) => (
-          <View key={dish._id} style={styles.dish}>
-            <View style={styles.dishDetails}>
-              <Text style={styles.quantity}>{dish.quantity}x</Text>
+      {basket.dishes.map((dish) => (
+        <View key={dish._id} style={styles.dish}>
+          <View style={styles.dishDetails}>
+            <Text style={styles.quantity}>{dish.quantity}x</Text>
 
-              <Image
-                style={styles.image}
-                source={{ uri: urlFor(dish.image.asset._ref).url() }}
-              />
+            <Image
+              style={styles.image}
+              source={{ uri: urlFor(dish.image.asset._ref).url() }}
+            />
 
-              <Text numberOfLines={1}>{dish.name}</Text>
-            </View>
-
-            <View style={styles.priceDetails}>
-              <Text>{formatCurrencyToUSD(dish.price)}</Text>
-
-              <TouchableOpacity onPress={() => removeDish(dish._id)}>
-                <Text style={styles.remove}>Remove</Text>
-              </TouchableOpacity>
-            </View>
+            <Text numberOfLines={1}>{dish.name}</Text>
           </View>
-        ))}
-      </View>
+
+          <View style={styles.priceDetails}>
+            <Text>{formatCurrencyToUSD(dish.price)}</Text>
+
+            <TouchableOpacity onPress={() => removeDish(dish._id)}>
+              <Text style={styles.remove}>Remove</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      ))}
     </ScrollView>
   );
 }

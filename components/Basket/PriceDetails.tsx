@@ -7,10 +7,12 @@ import {
 } from "react-native";
 import { formatCurrencyToUSD } from "../../utils";
 import { useBasket } from "../../contexts/basket";
+import { useNavigation } from "@react-navigation/native";
 
 export default function PriceDetails() {
   // Hooks
   const { basketPriceTotal } = useBasket();
+  const { navigate } = useNavigation();
 
   // Delivery fee
   const deliveryFee = 5.99;
@@ -35,7 +37,10 @@ export default function PriceDetails() {
         </Text>
       </View>
 
-      <TouchableOpacity style={styles.placeOrder}>
+      <TouchableOpacity
+        style={styles.placeOrder}
+        onPress={() => navigate("Order")}
+      >
         <Text style={styles.placeOrderText}>Place Order</Text>
       </TouchableOpacity>
     </View>
@@ -46,7 +51,8 @@ const styles = StyleSheet.create({
   priceDetails: {
     backgroundColor: "white",
     padding: 15,
-    paddingBottom: 65,
+    paddingBottom: 30,
+
     width: Dimensions.get("screen").width,
   },
 
