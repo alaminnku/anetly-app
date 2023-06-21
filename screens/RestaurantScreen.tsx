@@ -6,6 +6,7 @@ import RestaurantDetails from "../components/Restaurant/RestaurantDetails";
 import Allergy from "../components/Restaurant/Allergy";
 import Menu from "../components/Restaurant/Menu";
 import Basket from "../components/Restaurant/Basket";
+import { useBasket } from "../contexts/basket";
 
 interface IRestaurantScreenProps
   extends NativeStackScreenProps<RootStackParamList, "Restaurant"> {}
@@ -13,6 +14,9 @@ interface IRestaurantScreenProps
 export default function RestaurantScreen({
   route: { params },
 }: IRestaurantScreenProps) {
+  // Hooks
+  const { basketQuantityTotal } = useBasket();
+
   // Destructure params
   const {
     _id,
@@ -29,7 +33,7 @@ export default function RestaurantScreen({
 
   return (
     <>
-      <ScrollView style={styles.restaurant}>
+      <ScrollView>
         <RestaurantHeader logo={logo} />
 
         <RestaurantDetails
@@ -45,13 +49,7 @@ export default function RestaurantScreen({
         <Menu dishes={dishes} restaurant={{ _id, name }} />
       </ScrollView>
 
-      <Basket />
+      {basketQuantityTotal > 0 && <Basket />}
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  restaurant: {
-    marginBottom: 110,
-  },
-});

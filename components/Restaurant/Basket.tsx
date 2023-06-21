@@ -1,4 +1,10 @@
-import { TouchableOpacity, Text, StyleSheet, Dimensions } from "react-native";
+import {
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  Dimensions,
+  View,
+} from "react-native";
 import { useBasket } from "../../contexts/basket";
 import { useNavigation } from "@react-navigation/native";
 import { formatCurrencyToUSD } from "../../utils";
@@ -9,19 +15,31 @@ export default function Basket() {
   const { navigate } = useNavigation();
 
   return (
-    <TouchableOpacity style={styles.basket} onPress={() => navigate("Basket")}>
-      <Text style={styles.basketQuantity}>{basketQuantityTotal}</Text>
+    <View style={styles.basketContainer}>
+      <TouchableOpacity
+        style={styles.basket}
+        onPress={() => navigate("Basket")}
+      >
+        <Text style={styles.basketQuantity}>{basketQuantityTotal}</Text>
 
-      <Text style={styles.basketText}>View Basket</Text>
+        <Text style={styles.basketText}>View Basket</Text>
 
-      <Text style={styles.basketPrice}>
-        {formatCurrencyToUSD(basketPriceTotal)}
-      </Text>
-    </TouchableOpacity>
+        <Text style={styles.basketPrice}>
+          {formatCurrencyToUSD(basketPriceTotal)}
+        </Text>
+      </TouchableOpacity>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  basketContainer: {
+    height: 110,
+    borderTopWidth: 1,
+    borderTopColor: "#e5e7eb",
+    backgroundColor: "white",
+  },
+
   basket: {
     flexDirection: "row",
     alignItems: "center",
