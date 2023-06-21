@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export type RootStackParamList = {
   Home: undefined;
@@ -73,6 +73,7 @@ export interface IBasket {
 
 export interface IBasketContext {
   basket: IBasket;
+  setBasket: Dispatch<SetStateAction<IBasket>>;
   addToBasket: (addedDish: IDish, restaurant: IBasketRestaurant) => void;
   removeFromBasket: (removedDish: IDish, restaurant: IBasketRestaurant) => void;
   basketPriceTotal: number;

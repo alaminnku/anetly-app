@@ -101,6 +101,7 @@ export default function BasketProvider({ children }: IContextProviderProps) {
     <BasketContext.Provider
       value={{
         basket,
+        setBasket,
         addToBasket,
         removeFromBasket,
         basketPriceTotal,

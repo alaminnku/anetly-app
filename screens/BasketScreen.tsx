@@ -1,13 +1,22 @@
-import { View, Text } from "react-native";
-import { useBasket } from "../contexts/basket";
+import { SafeAreaView, StyleSheet, Dimensions } from "react-native";
+import Header from "../components/Basket/Header";
+import DeliveryDetails from "../components/Basket/DeliveryDetails";
+import Dishes from "../components/Basket/Dishes";
+import PriceDetails from "../components/Basket/PriceDetails";
 
 export default function BasketScreen() {
-  // Hooks
-  const { basket } = useBasket();
-
   return (
-    <View>
-      <Text>BasketScreen</Text>
-    </View>
+    <SafeAreaView style={styles.basket}>
+      <Header />
+      <DeliveryDetails />
+      <Dishes />
+      <PriceDetails />
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  basket: {
+    minHeight: Dimensions.get("screen").height,
+  },
+});

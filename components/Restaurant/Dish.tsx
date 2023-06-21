@@ -6,28 +6,30 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
-import { IDish } from "../../types";
+import { IBasketRestaurant, IDish } from "../../types";
 import { urlFor } from "../../config/sanity";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MinusIcon, PlusIcon } from "react-native-heroicons/solid";
 import { useBasket } from "../../contexts/basket";
 
 interface IDishProps {
   dish: IDish;
-  restaurant: {
-    _id: string;
-    name: string;
-  };
+  restaurant: IBasketRestaurant;
 }
 
 export default function Dish({ dish, restaurant }: IDishProps) {
   // Hooks
   const { basket, addToBasket, removeFromBasket } = useBasket();
-  const [quantity, setQuantity] = useState(
-    basket.dishes.find((basketDish) => basketDish._id === dish._id)?.quantity ||
-      0
-  );
+  const [quantity, setQuantity] = useState(0);
   const [isPressed, setIsPressed] = useState(false);
+
+  // Get quantity from basket
+  useEffect(() => {
+    setQuantity(
+      basket.dishes.find((basketDish) => basketDish._id === dish._id)
+        ?.quantity || 0
+    );
+  }, [basket]);
 
   return (
     <TouchableOpacity
