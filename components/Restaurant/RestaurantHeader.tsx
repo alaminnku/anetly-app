@@ -34,7 +34,7 @@ export default function RestaurantHeader({ logo }: IRestaurantHeaderProps) {
           navigate("Home");
         }}
       >
-        <ArrowLeftIcon color="#3b82f6" size={20} />
+        <ArrowLeftIcon color="#2dd4bf" size={20} />
       </TouchableOpacity>
     </View>
   );

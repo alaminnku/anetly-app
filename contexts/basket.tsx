@@ -20,6 +20,8 @@ export default function BasketProvider({ children }: IContextProviderProps) {
     restaurant: {
       _id: "",
       name: "",
+      latitude: 0,
+      longitude: 0,
     },
     dishes: [],
   });

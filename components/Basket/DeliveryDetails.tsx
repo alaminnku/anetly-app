@@ -44,6 +44,6 @@ const styles = StyleSheet.create({
   },
 
   changeText: {
-    color: "#3b82f6",
+    color: "#2dd4bf",
   },
 });

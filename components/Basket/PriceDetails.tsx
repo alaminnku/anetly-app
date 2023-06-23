@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 20,
     borderRadius: 10,
-    backgroundColor: "#3b82f6",
+    backgroundColor: "#2dd4bf",
   },
 
   placeOrderText: {

@@ -5,6 +5,7 @@ export type RootStackParamList = {
   Restaurant: IRestaurant;
   Basket: undefined;
   Order: undefined;
+  Delivery: undefined;
 };
 
 declare global {
@@ -61,6 +62,8 @@ export interface IContextProviderProps {
 export interface IBasketRestaurant {
   _id: string;
   name: string;
+  latitude: number;
+  longitude: number;
 }
 
 interface IBasketDish extends IDish {

@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
 
   quantity: {
-    color: "#3b82f6",
+    color: "#2dd4bf",
     marginRight: 10,
   },
 
@@ -89,6 +89,6 @@ const styles = StyleSheet.create({
 
   remove: {
     marginLeft: 10,
-    color: "#3b82f6",
+    color: "#2dd4bf",
   },
 });

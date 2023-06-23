@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     padding: 15,
     borderRadius: 10,
-    backgroundColor: "#3b82f6",
+    backgroundColor: "#2dd4bf",
     width: Dimensions.get("screen").width - 50,
   },
 
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     paddingVertical: 5,
     paddingHorizontal: 8,
-    backgroundColor: "#044dc2",
+    backgroundColor: "#14b8a6",
   },
 
   basketText: {

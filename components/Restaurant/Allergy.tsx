@@ -17,7 +17,7 @@ export default function Allergy() {
         <Text style={styles.allergy_text}>Have a food allergy?</Text>
       </View>
 
-      <ArrowRightIcon color="#3b82f6" size={25} />
+      <ArrowRightIcon color="#2dd4bf" size={25} />
     </TouchableOpacity>
   );
 }

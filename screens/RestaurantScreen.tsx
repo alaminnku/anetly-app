@@ -46,7 +46,7 @@ export default function RestaurantScreen({
 
         <Allergy />
 
-        <Menu dishes={dishes} restaurant={{ _id, name }} />
+        <Menu dishes={dishes} restaurant={{ _id, name, latitude, longitude }} />
       </ScrollView>
 
       {basketQuantityTotal > 0 && <Basket />}

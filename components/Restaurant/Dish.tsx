@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#3b82f6",
+    backgroundColor: "#2dd4bf",
     marginRight: 10,
   },
 
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#3b82f6",
+    backgroundColor: "#2dd4bf",
     marginLeft: 10,
   },
 });

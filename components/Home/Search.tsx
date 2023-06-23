@@ -15,7 +15,7 @@ export default function Search() {
         />
       </View>
 
-      <AdjustmentsHorizontalIcon color="#3b82f6" />
+      <AdjustmentsHorizontalIcon color="#2dd4bf" />
     </View>
   );
 }

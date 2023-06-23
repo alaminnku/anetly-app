@@ -12,12 +12,12 @@ export default function Header() {
 
           <View style={styles.location}>
             <Text style={styles.location_text}>Current location</Text>
-            <ChevronDownIcon size={20} color="#3b82f6" />
+            <ChevronDownIcon size={20} color="#2dd4bf" />
           </View>
         </View>
       </View>
 
-      <UserIcon size={35} color="#3b82f6" />
+      <UserIcon size={35} color="#2dd4bf" />
     </View>
   );
 }

@@ -16,7 +16,7 @@ export default function Header() {
       </View>
 
       <TouchableOpacity onPress={() => goBack()}>
-        <XCircleIcon size={36} />
+        <XCircleIcon size={36} color="#2dd4bf" />
       </TouchableOpacity>
     </View>
   );
