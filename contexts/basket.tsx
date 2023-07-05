@@ -97,8 +97,6 @@ export default function BasketProvider({ children }: IContextProviderProps) {
     });
   }
 
-  console.log(basket);
-
   return (
     <BasketContext.Provider
       value={{

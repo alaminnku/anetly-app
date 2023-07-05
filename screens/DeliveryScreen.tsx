@@ -65,6 +65,24 @@ export default function DeliveryScreen() {
           title={basket.restaurant.name}
         />
       </MapView>
+
+      <View style={styles.rider}>
+        <View style={styles.image_and_name}>
+          <Image
+            style={styles.rider_image}
+            source={require("../assets/logo.avif")}
+          />
+
+          <View>
+            <Text style={styles.rider_name}>Shamim Rahman</Text>
+            <Text style={styles.rider_about}>Your Rider</Text>
+          </View>
+        </View>
+
+        <TouchableOpacity>
+          <Text style={styles.cancel}>Cancel</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -125,5 +143,43 @@ const styles = StyleSheet.create({
     flex: 1,
     zIndex: 10,
     marginTop: -60,
+  },
+
+  rider: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: 15,
+    paddingBottom: 30,
+    backgroundColor: "white",
+  },
+
+  image_and_name: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  rider_image: {
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+    marginRight: 20,
+    backgroundColor: "#d4d2d2",
+  },
+
+  rider_name: {
+    marginBottom: 5,
+    fontSize: 18,
+    fontWeight: "600",
+  },
+
+  rider_about: {
+    color: "#94a3b8",
+  },
+
+  cancel: {
+    color: "#2dd4bf",
+    fontSize: 18,
+    fontWeight: "600",
   },
 });
