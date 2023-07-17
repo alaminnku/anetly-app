@@ -83,3 +83,16 @@ export interface IBasketContext {
   basketPriceTotal: number;
   basketQuantityTotal: number;
 }
+
+export interface IUser {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  token: string;
+}
+
+export interface IUserContext {
+  user: IUser | null;
+  setUser: Dispatch<SetStateAction<IUser | null>>;
+}

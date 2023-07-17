@@ -74,7 +74,7 @@ export default function DeliveryScreen() {
           />
 
           <View>
-            <Text style={styles.rider_name}>Shamim Rahman</Text>
+            <Text style={styles.rider_name}>Ahsan A.</Text>
             <Text style={styles.rider_about}>Your Rider</Text>
           </View>
         </View>
