@@ -8,7 +8,7 @@ const UserContext = createContext({} as IUserContext);
 export const useUser = () => useContext(UserContext);
 
 // Provider
-export default function BasketProvider({ children }: IContextProviderProps) {
+export default function UserProvider({ children }: IContextProviderProps) {
   // Hooks
   const [user, setUser] = useState<IUser | null>(null);
 

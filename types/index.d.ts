@@ -6,6 +6,7 @@ export type RootStackParamList = {
   Basket: undefined;
   Order: undefined;
   Delivery: undefined;
+  Login: undefined;
 };
 
 declare global {

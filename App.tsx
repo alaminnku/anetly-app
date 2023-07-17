@@ -8,6 +8,8 @@ import BasketProvider from "./contexts/basket";
 import BasketScreen from "./screens/BasketScreen";
 import OrderScreen from "./screens/OrderScreen";
 import DeliveryScreen from "./screens/DeliveryScreen";
+import UserProvider from "./contexts/user";
+import LoginScreen from "./screens/LoginScreen";
 
 // Create stack
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -15,35 +17,42 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function App() {
   return (
     <NavigationContainer>
-      <BasketProvider>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Restaurant"
-            component={RestaurantScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Basket"
-            component={BasketScreen}
-            options={{ presentation: "modal", headerShown: false }}
-          />
-          <Stack.Screen
-            name="Order"
-            component={OrderScreen}
-            options={{ presentation: "fullScreenModal", headerShown: false }}
-          />
-          <Stack.Screen
-            name="Delivery"
-            component={DeliveryScreen}
-            options={{ presentation: "fullScreenModal", headerShown: false }}
-          />
-        </Stack.Navigator>
-      </BasketProvider>
+      <UserProvider>
+        <BasketProvider>
+          <Stack.Navigator>
+            <Stack.Screen
+              name="Home"
+              component={HomeScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Restaurant"
+              component={RestaurantScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Basket"
+              component={BasketScreen}
+              options={{ presentation: "modal", headerShown: false }}
+            />
+            <Stack.Screen
+              name="Order"
+              component={OrderScreen}
+              options={{ presentation: "fullScreenModal", headerShown: false }}
+            />
+            <Stack.Screen
+              name="Delivery"
+              component={DeliveryScreen}
+              options={{ presentation: "fullScreenModal", headerShown: false }}
+            />
+            <Stack.Screen
+              name="Login"
+              component={LoginScreen}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        </BasketProvider>
+      </UserProvider>
     </NavigationContainer>
   );
 }

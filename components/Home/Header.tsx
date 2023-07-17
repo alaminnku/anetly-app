@@ -1,7 +1,10 @@
-import { View, Image, StyleSheet, Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { View, Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { ChevronDownIcon, UserIcon } from "react-native-heroicons/outline";
 
 export default function Header() {
+  // Hooks
+  const { navigate } = useNavigation();
   return (
     <View style={styles.header}>
       <View style={styles.logo_and_title}>
@@ -17,7 +20,9 @@ export default function Header() {
         </View>
       </View>
 
-      <UserIcon size={35} color="#2dd4bf" />
+      <TouchableOpacity onPress={() => navigate("Login")}>
+        <UserIcon size={35} color="#2dd4bf" />
+      </TouchableOpacity>
     </View>
   );
 }

@@ -21,7 +21,6 @@ export default function RestaurantDetails({
   return (
     <View style={styles.details}>
       <Text style={styles.name}>{name}</Text>
-
       <View style={styles.about}>
         <View style={styles.rating}>
           <StarIcon style={styles.star} color="green" opacity={0.5} size={22} />
@@ -42,7 +41,6 @@ export default function RestaurantDetails({
           <Text style={styles.address}>Nearby . {address}</Text>
         </View>
       </View>
-
       <Text style={styles.description}>{description}</Text>
     </View>
   );
