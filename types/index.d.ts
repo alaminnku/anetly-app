@@ -1,3 +1,4 @@
+import { AxiosError } from "axios";
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export type RootStackParamList = {
@@ -86,12 +87,15 @@ export interface IBasketContext {
 }
 
 export interface IUser {
+  _id: string;
   firstName: string;
   lastName: string;
   email: string;
-  password: string;
-  token: string;
 }
+
+type AxiosError = AxiosError<{
+  message: string;
+}>;
 
 export interface IUserContext {
   token: string | null;
