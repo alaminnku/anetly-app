@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native";
+import { useIsFocused, useNavigation } from "@react-navigation/native";
 import {
   SafeAreaView,
   View,
@@ -11,11 +11,22 @@ import { XMarkIcon } from "react-native-heroicons/solid";
 import * as Progress from "react-native-progress";
 import { useBasket } from "../contexts/basket";
 import MapView, { Marker } from "react-native-maps";
+import { useUser } from "../contexts/user";
+import { useEffect } from "react";
 
 export default function DeliveryScreen() {
   // Hooks
   const { basket } = useBasket();
   const { navigate } = useNavigation();
+  const { token } = useUser();
+  const isFocused = useIsFocused();
+
+  // Handle navigation
+  useEffect(() => {
+    if (!token) {
+      navigate("Login");
+    }
+  }, [token, isFocused]);
 
   return (
     <View style={styles.delivery}>

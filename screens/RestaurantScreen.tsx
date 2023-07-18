@@ -7,6 +7,9 @@ import Allergy from "../components/Restaurant/Allergy";
 import Menu from "../components/Restaurant/Menu";
 import Basket from "../components/Restaurant/Basket";
 import { useBasket } from "../contexts/basket";
+import { useUser } from "../contexts/user";
+import { useIsFocused, useNavigation } from "@react-navigation/native";
+import { useEffect } from "react";
 
 interface IRestaurantScreenProps
   extends NativeStackScreenProps<RootStackParamList, "Restaurant"> {}
@@ -15,7 +18,17 @@ export default function RestaurantScreen({
   route: { params },
 }: IRestaurantScreenProps) {
   // Hooks
+  const { token } = useUser();
+  const { navigate } = useNavigation();
+  const isFocused = useIsFocused();
   const { basketQuantityTotal } = useBasket();
+
+  // Handle navigation
+  useEffect(() => {
+    if (!token) {
+      navigate("Login");
+    }
+  }, [token, isFocused]);
 
   // Destructure params
   const {

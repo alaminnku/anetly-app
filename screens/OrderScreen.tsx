@@ -1,12 +1,22 @@
 import { SafeAreaView, View, Text, StyleSheet } from "react-native";
 import LottieView from "lottie-react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useIsFocused, useNavigation } from "@react-navigation/native";
 import { useEffect } from "react";
 import * as Progress from "react-native-progress";
+import { useUser } from "../contexts/user";
 
 export default function OrderScreen() {
   // Hooks
   const { navigate } = useNavigation();
+  const { token } = useUser();
+  const isFocused = useIsFocused();
+
+  // Handle navigation
+  useEffect(() => {
+    if (!token) {
+      navigate("Login");
+    }
+  }, [token, isFocused]);
 
   // Navigate after 4 seconds
   useEffect(() => {
