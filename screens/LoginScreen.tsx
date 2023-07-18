@@ -1,4 +1,4 @@
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useIsFocused, useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import {
   View,
@@ -15,6 +15,7 @@ import * as SecureStore from "expo-secure-store";
 
 export default function LoginScreen() {
   // Hooks
+  const isFocused = useIsFocused();
   const { token, setToken, setUser } = useUser();
   const { navigate } = useNavigation();
   const [formData, setFormData] = useState({
@@ -30,7 +31,7 @@ export default function LoginScreen() {
     if (token) {
       navigate("Home");
     }
-  }, [token]);
+  }, [token, isFocused]);
 
   // Handle login
   async function handleLogin() {

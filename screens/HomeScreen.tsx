@@ -4,8 +4,23 @@ import Categories from "../components/Home/Categories";
 import Header from "../components/Home/Header";
 import FeaturedRows from "../components/Home/FeaturedRows";
 import { StyleSheet } from "react-native";
+import { useEffect } from "react";
+import { useUser } from "../contexts/user";
+import { useIsFocused, useNavigation } from "@react-navigation/native";
 
 export default function HomeScreen() {
+  // Hooks
+  const { token } = useUser();
+  const { navigate } = useNavigation();
+  const isFocused = useIsFocused();
+
+  // Handle navigation
+  useEffect(() => {
+    if (!token) {
+      navigate("Login");
+    }
+  }, [token, isFocused]);
+
   return (
     <SafeAreaView style={styles.screen}>
       <Header />
