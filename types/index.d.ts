@@ -94,6 +94,8 @@ export interface IUser {
 }
 
 export interface IUserContext {
+  token: string | null;
   user: IUser | null;
+  setToken: Dispatch<SetStateAction<string | null>>;
   setUser: Dispatch<SetStateAction<IUser | null>>;
 }

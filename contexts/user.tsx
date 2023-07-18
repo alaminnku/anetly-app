@@ -11,9 +11,10 @@ export const useUser = () => useContext(UserContext);
 export default function UserProvider({ children }: IContextProviderProps) {
   // Hooks
   const [user, setUser] = useState<IUser | null>(null);
+  const [token, setToken] = useState<string | null>(null);
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ token, setToken, user, setUser }}>
       {children}
     </UserContext.Provider>
   );

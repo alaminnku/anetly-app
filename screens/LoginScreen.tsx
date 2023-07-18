@@ -1,5 +1,5 @@
-import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -7,13 +7,15 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
-  Button,
 } from "react-native";
 import { ArrowLeftIcon } from "react-native-heroicons/outline";
 import { axiosInstance } from "../config/axios";
+import { useUser } from "../contexts/user";
+import * as SecureStore from "expo-secure-store";
 
 export default function LoginScreen() {
   // Hooks
+  const { token, setToken, setUser } = useUser();
   const { navigate } = useNavigation();
   const [formData, setFormData] = useState({
     email: "",
@@ -23,15 +25,32 @@ export default function LoginScreen() {
   // Destructure form
   const { email, password } = formData;
 
+  // Handle navigation
+  useEffect(() => {
+    if (token) {
+      navigate("Home");
+    }
+  }, [token]);
+
   // Handle login
   async function handleLogin() {
     try {
+      // Make request to backend
       const response = await axiosInstance.post("/users/login", {
         ...formData,
       });
 
-      console.log(response.data);
+      // Destructure data
+      const { token, ...rest } = response.data;
+
+      // Update states
+      setToken(token);
+      setUser(rest);
+
+      // Save token to secure store
+      await SecureStore.setItemAsync("token", token);
     } catch (err) {
+      // Log error
       console.log(err);
     }
   }
@@ -51,6 +70,7 @@ export default function LoginScreen() {
       <View style={styles.form_item}>
         <Text style={styles.label}>Email address</Text>
         <TextInput
+          autoCapitalize="none"
           placeholder="Enter email address"
           style={styles.input}
           value={email}
