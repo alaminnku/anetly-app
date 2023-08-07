@@ -1,11 +1,11 @@
-import { View } from "react-native";
-import Header from "../components/Basket/Header";
-import DeliveryDetails from "../components/Basket/DeliveryDetails";
-import Dishes from "../components/Basket/Dishes";
-import PriceDetails from "../components/Basket/PriceDetails";
-import { useUser } from "../contexts/user";
-import { useIsFocused, useNavigation } from "@react-navigation/native";
-import { useEffect } from "react";
+import { View } from 'react-native';
+import Header from '../components/basket/Header';
+import DeliveryDetails from '../components/basket/DeliveryDetails';
+import Dishes from '../components/basket/Dishes';
+import PriceDetails from '../components/basket/PriceDetails';
+import { useUser } from '../contexts/user';
+import { useIsFocused, useNavigation } from '@react-navigation/native';
+import { useEffect } from 'react';
 
 export default function BasketScreen() {
   // Hooks
@@ -16,7 +16,7 @@ export default function BasketScreen() {
   // Handle navigation
   useEffect(() => {
     if (!token) {
-      navigate("Login");
+      navigate('Login');
     }
   }, [token, isFocused]);
 

@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet } from "react-native";
-import { IBasketRestaurant, IDish } from "../../types";
-import Dish from "./Dish";
+import { View, Text, StyleSheet } from 'react-native';
+import { IBasketRestaurant, IDish } from '../../types';
+import Dish from './Dish';
 
 interface IMenuProps {
   dishes: IDish[];
@@ -25,12 +25,12 @@ const styles = StyleSheet.create({
   menu: {},
 
   title: {
-    fontWeight: "500",
+    fontWeight: '500',
     fontSize: 20,
     margin: 15,
   },
 
   dishes: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
   },
 });

@@ -1,12 +1,22 @@
-import { SafeAreaView, ScrollView } from "react-native";
-import Search from "../components/Home/Search";
-import Categories from "../components/Home/Categories";
-import Header from "../components/Home/Header";
-import FeaturedRows from "../components/Home/FeaturedRows";
-import { StyleSheet } from "react-native";
-import { useEffect } from "react";
-import { useUser } from "../contexts/user";
-import { useIsFocused, useNavigation } from "@react-navigation/native";
+import {
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import Search from '../components/home/Search';
+import Categories from '../components/home/Categories';
+import Header from '../components/home/Header';
+import FeaturedRows from '../components/home/FeaturedRows';
+import { StyleSheet } from 'react-native';
+import { useEffect, useState } from 'react';
+import { useUser } from '../contexts/user';
+import {
+  RouteProp,
+  useIsFocused,
+  useNavigation,
+} from '@react-navigation/native';
 
 export default function HomeScreen() {
   // Hooks
@@ -17,7 +27,7 @@ export default function HomeScreen() {
   // Handle navigation
   useEffect(() => {
     if (!token) {
-      navigate("Login");
+      navigate('Login');
     }
   }, [token, isFocused]);
 
@@ -25,7 +35,6 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.screen}>
       <Header />
       <Search />
-
       <ScrollView style={styles.body}>
         <Categories />
         <FeaturedRows />
@@ -36,11 +45,11 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: "#ffffff",
     marginBottom: 100,
+    backgroundColor: '#ffffff',
   },
 
   body: {
-    backgroundColor: "#f3f4f6",
+    backgroundColor: '#f3f4f6',
   },
 });
