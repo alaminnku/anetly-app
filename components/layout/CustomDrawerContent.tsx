@@ -4,14 +4,17 @@ import {
   DrawerContentComponentProps,
 } from '@react-navigation/drawer';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { ShareIcon } from 'react-native-heroicons/outline';
+import {
+  ShareIcon,
+  ArrowRightOnRectangleIcon,
+} from 'react-native-heroicons/outline';
 
 export default function CustomDrawerContent(
   props: DrawerContentComponentProps
 ) {
   return (
     <View style={styles.custom_drawer}>
-      <DrawerContentScrollView {...props} style={styles.drawer_scroll}>
+      <DrawerContentScrollView {...props}>
         <View style={styles.logo_and_app_name}>
           <Image
             style={styles.logo}
@@ -27,7 +30,16 @@ export default function CustomDrawerContent(
       <View style={styles.drawer_footer}>
         <TouchableOpacity style={styles.share}>
           <ShareIcon style={{ marginRight: 10 }} size={25} color='#2dd4bf' />
-          <Text style={styles.share_text}>Share With Fiends</Text>
+          <Text style={styles.share_text}>Share with friends</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.login}>
+          <ArrowRightOnRectangleIcon
+            style={{ marginRight: 10 }}
+            size={25}
+            color='#2dd4bf'
+          />
+          <Text style={styles.login_text}>Log in</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -37,18 +49,12 @@ export default function CustomDrawerContent(
 const styles = StyleSheet.create({
   custom_drawer: {
     flex: 1,
-    marginBottom: 50,
-  },
-
-  drawer_scroll: {
-    // borderWidth: 1,
   },
 
   logo_and_app_name: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 20,
-    paddingHorizontal: 10,
   },
 
   logo: {
@@ -65,12 +71,14 @@ const styles = StyleSheet.create({
   },
 
   drawer_footer: {
-    padding: 10,
+    paddingVertical: 20,
     borderTopWidth: 1,
-    borderTopColor: '#d4d2d2',
+    paddingHorizontal: 15,
+    borderTopColor: '#f3f4f6',
   },
 
   share: {
+    marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -78,6 +86,18 @@ const styles = StyleSheet.create({
   share_text: {
     color: 'gray',
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: '500',
+  },
+
+  login: {
+    marginBottom: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
+  login_text: {
+    color: 'gray',
+    fontSize: 18,
+    fontWeight: '500',
   },
 });

@@ -1,15 +1,18 @@
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, DrawerActions } from '@react-navigation/native';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { UserIcon, Bars3Icon } from 'react-native-heroicons/outline';
-import { DrawerActions } from '@react-navigation/native';
+import { Bars3Icon } from 'react-native-heroicons/outline';
 
 export default function Header() {
   // Hooks
-  const { navigate } = useNavigation();
+  const navigation = useNavigation();
+
+  // Open drawer
+  const openDrawer = () => navigation.dispatch(DrawerActions.openDrawer());
+
   return (
     <View style={styles.header}>
       <View style={styles.menu_and_title}>
-        <TouchableOpacity onPress={() => DrawerActions.openDrawer()}>
+        <TouchableOpacity onPress={openDrawer}>
           <Bars3Icon style={styles.menu} color='#2dd4bf' size={30} />
         </TouchableOpacity>
 
@@ -21,10 +24,6 @@ export default function Header() {
           </View>
         </View>
       </View>
-
-      <TouchableOpacity onPress={() => navigate('Login')}>
-        <UserIcon size={30} color='#2dd4bf' />
-      </TouchableOpacity>
     </View>
   );
 }

@@ -10,26 +10,14 @@ import Categories from '../components/home/Categories';
 import Header from '../components/home/Header';
 import FeaturedRows from '../components/home/FeaturedRows';
 import { StyleSheet } from 'react-native';
-import { useEffect, useState } from 'react';
 import { useUser } from '../contexts/user';
-import {
-  RouteProp,
-  useIsFocused,
-  useNavigation,
-} from '@react-navigation/native';
+import { useIsFocused, useNavigation } from '@react-navigation/native';
 
 export default function HomeScreen() {
   // Hooks
   const { token } = useUser();
   const { navigate } = useNavigation();
   const isFocused = useIsFocused();
-
-  // Handle navigation
-  useEffect(() => {
-    if (!token) {
-      navigate('Login');
-    }
-  }, [token, isFocused]);
 
   return (
     <SafeAreaView style={styles.screen}>

@@ -1,17 +1,15 @@
 import { AxiosError } from 'axios';
 import { Dispatch, ReactNode, SetStateAction } from 'react';
 
-export type AppStackParamList = {
+export type MainParamList = {
   Home: undefined;
   Restaurant: IRestaurant;
   Basket: undefined;
   Order: undefined;
   Delivery: undefined;
-  Login: undefined;
-  Register: undefined;
 };
 
-export type AuthStackParamList = {
+export type DrawerParamList = {
   Home: undefined;
   User: undefined;
   Vendor: undefined;
@@ -19,7 +17,9 @@ export type AuthStackParamList = {
 
 declare global {
   namespace ReactNavigation {
-    interface RootParamList extends AppStackParamList {}
+    interface RootParamList extends MainParamList {
+      Root: undefined;
+    }
   }
 }
 

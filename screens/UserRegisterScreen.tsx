@@ -23,19 +23,11 @@ export default function UserRegisterScreen() {
   // Destructure data
   const { firstName, lastName, email, password } = formData;
 
-  async function handleRegister() {}
+  async function handleUserRegister() {}
 
   return (
-    <View style={styles.register}>
-      <SafeAreaView style={styles.header}>
-        <TouchableOpacity
-          style={styles.back_button}
-          onPress={() => navigate('Home')}
-        >
-          <ArrowLeftIcon color='#2dd4bf' size={20} />
-        </TouchableOpacity>
-        <Text style={styles.header_text}>Register</Text>
-      </SafeAreaView>
+    <SafeAreaView style={styles.register}>
+      <Text style={styles.header_text}>Register</Text>
 
       <View style={styles.form_item}>
         <Text style={styles.label}>First name</Text>
@@ -101,10 +93,13 @@ export default function UserRegisterScreen() {
         />
       </View>
 
-      <TouchableOpacity style={styles.submit_button} onPress={handleRegister}>
+      <TouchableOpacity
+        style={styles.submit_button}
+        onPress={handleUserRegister}
+      >
         <Text style={styles.button_text}>SUBMIT</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -115,26 +110,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
 
-  header: {
-    marginTop: 60,
-    flexDirection: 'row',
-    marginBottom: 40,
-  },
-
-  back_button: {
-    backgroundColor: '#f3f4f6',
-    borderRadius: 100,
-    width: 40,
-    height: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
   header_text: {
-    flex: 1,
     fontSize: 24,
     fontWeight: '600',
     textAlign: 'center',
+    marginBottom: 20,
   },
 
   form_item: {
