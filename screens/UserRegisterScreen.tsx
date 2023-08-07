@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
+import { DrawerActions, useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import {
   View,
@@ -7,12 +7,12 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
-import { ArrowLeftIcon } from 'react-native-heroicons/outline';
+import { ArrowLeftIcon, Bars3Icon } from 'react-native-heroicons/outline';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function UserRegisterScreen() {
   // Hooks
-  const { navigate } = useNavigation();
+  const navigation = useNavigation();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -23,11 +23,20 @@ export default function UserRegisterScreen() {
   // Destructure data
   const { firstName, lastName, email, password } = formData;
 
+  // Open sidebar
+  const handleOpenSidebar = () =>
+    navigation.dispatch(DrawerActions.openDrawer());
+
   async function handleUserRegister() {}
 
   return (
     <SafeAreaView style={styles.register}>
-      <Text style={styles.header_text}>Register</Text>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={handleOpenSidebar}>
+          <Bars3Icon style={styles.menu_icon} color='#2dd4bf' size={30} />
+        </TouchableOpacity>
+        <Text style={styles.header_text}>Register</Text>
+      </View>
 
       <View style={styles.form_item}>
         <Text style={styles.label}>First name</Text>
@@ -108,6 +117,14 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 15,
     backgroundColor: 'white',
+  },
+
+  header: {
+    flexDirection: 'row',
+  },
+
+  menu_icon: {
+    marginRight: 15,
   },
 
   header_text: {
