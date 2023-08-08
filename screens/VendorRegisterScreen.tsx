@@ -23,8 +23,8 @@ export default function VendorRegisterScreen() {
   // Destructure data
   const { firstName, lastName, email, password } = formData;
 
-  // Open sidebar
-  const handleOpenSidebar = () =>
+  // Open drawer
+  const handleOpenDrawer = () =>
     navigation.dispatch(DrawerActions.openDrawer());
 
   async function handleVendorRegister() {}
@@ -32,7 +32,7 @@ export default function VendorRegisterScreen() {
   return (
     <SafeAreaView style={styles.register}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={handleOpenSidebar}>
+        <TouchableOpacity onPress={handleOpenDrawer}>
           <Bars3Icon style={styles.menu_icon} color='#2dd4bf' size={30} />
         </TouchableOpacity>
         <Text style={styles.header_text}>Add Restaurant</Text>

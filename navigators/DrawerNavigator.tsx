@@ -10,6 +10,7 @@ import UserRegisterScreen from '../screens/UserRegisterScreen';
 import VendorRegisterScreen from '../screens/VendorRegisterScreen';
 import MainNavigator from './MainNavigator';
 
+// Create drawer
 const Drawer = createDrawerNavigator<DrawerParamList>();
 
 export default function DrawerNavigator() {

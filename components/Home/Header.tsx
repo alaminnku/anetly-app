@@ -7,12 +7,12 @@ export default function Header() {
   const navigation = useNavigation();
 
   // Open drawer
-  const handleOpenSidebar = () =>
+  const handleOpenDrawer = () =>
     navigation.dispatch(DrawerActions.openDrawer());
 
   return (
     <View style={styles.header}>
-      <TouchableOpacity onPress={handleOpenSidebar}>
+      <TouchableOpacity onPress={handleOpenDrawer}>
         <Bars3Icon style={styles.menu_icon} color='#2dd4bf' size={30} />
       </TouchableOpacity>
       <Text style={styles.header_text}>Home</Text>

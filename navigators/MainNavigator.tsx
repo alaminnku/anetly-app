@@ -6,6 +6,7 @@ import BasketScreen from '../screens/BasketScreen';
 import OrderScreen from '../screens/OrderScreen';
 import DeliveryScreen from '../screens/DeliveryScreen';
 
+// Create stack
 const Stack = createNativeStackNavigator<MainParamList>();
 
 export default function MainNavigator() {
