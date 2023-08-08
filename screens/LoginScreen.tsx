@@ -20,8 +20,8 @@ import { setItemAsync } from 'expo-secure-store';
 export default function LoginScreen() {
   // Hooks
   const isFocused = useIsFocused();
-  const { token, setToken, setUser } = useUser();
   const { goBack } = useNavigation();
+  const { token, setToken, setUser } = useUser();
   const [formData, setFormData] = useState({
     email: '',
     password: '',

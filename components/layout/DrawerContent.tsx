@@ -52,19 +52,20 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
         <TouchableOpacity style={styles.share}>
           <ShareIcon size={25} color='#2dd4bf' style={{ marginRight: 10 }} />
 
-          <Text style={styles.share_text}>Share with friends</Text>
+          <Text style={styles.share_text}>Invite friends</Text>
         </TouchableOpacity>
 
-        {token && (
-          <TouchableOpacity style={styles.login} onPress={handleLogout}>
-            <ArrowRightOnRectangleIcon
-              style={{ marginRight: 10 }}
-              size={25}
-              color='#2dd4bf'
-            />
-            <Text style={styles.login_text}>Log out</Text>
-          </TouchableOpacity>
-        )}
+        <TouchableOpacity
+          style={styles.login}
+          onPress={token ? handleLogout : () => navigate('Login')}
+        >
+          <ArrowRightOnRectangleIcon
+            style={{ marginRight: 10 }}
+            size={25}
+            color='#2dd4bf'
+          />
+          <Text style={styles.login_text}>{token ? 'Log out' : 'Sign in'}</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -79,6 +80,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 20,
+    paddingHorizontal: 15,
   },
 
   logo: {

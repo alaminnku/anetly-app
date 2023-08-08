@@ -30,11 +30,7 @@ export default function MainNavigator() {
         component={DeliveryScreen}
         options={{ presentation: 'fullScreenModal' }}
       />
-      <Stack.Screen
-        name='Login'
-        component={LoginScreen}
-        // options={{ presentation: 'modal' }}
-      />
+      <Stack.Screen name='Login' component={LoginScreen} />
     </Stack.Navigator>
   );
 }

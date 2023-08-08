@@ -14,6 +14,10 @@ export type DrawerParamList = {
   Home: undefined;
   User: undefined;
   Vendor: undefined;
+  Restaurant: undefined;
+  Items: undefined;
+  Favorite: undefined;
+  Support: undefined;
 };
 
 declare global {
@@ -99,6 +103,7 @@ export interface IUser {
   firstName: string;
   lastName: string;
   email: string;
+  role: 'VENDOR' | 'CUSTOMER';
 }
 
 type AxiosError = AxiosError<{
