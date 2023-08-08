@@ -14,7 +14,7 @@ import { deleteItemAsync } from 'expo-secure-store';
 
 export default function DrawerContent(props: DrawerContentComponentProps) {
   // Hooks
-  const { token, setToken, setUser } = useUser();
+  const { token, user, setToken, setUser } = useUser();
   const { navigate, dispatch } = useNavigation();
 
   // Handle log out
@@ -42,7 +42,9 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
             source={require('../../assets/logo.avif')}
           />
 
-          <Text style={styles.app_name}>Anetly</Text>
+          <Text style={styles.app_name}>
+            {user ? `${user?.firstName} ${user?.lastName}` : 'Anetly'}
+          </Text>
         </View>
 
         <DrawerItemList {...props} />
