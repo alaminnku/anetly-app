@@ -4,10 +4,7 @@ import {
   DrawerContentComponentProps,
 } from '@react-navigation/drawer';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import {
-  ShareIcon,
-  ArrowRightOnRectangleIcon,
-} from 'react-native-heroicons/outline';
+import { ArrowRightOnRectangleIcon } from 'react-native-heroicons/outline';
 
 export default function CustomDrawerContent(
   props: DrawerContentComponentProps
@@ -28,11 +25,6 @@ export default function CustomDrawerContent(
       </DrawerContentScrollView>
 
       <View style={styles.drawer_footer}>
-        <TouchableOpacity style={styles.share}>
-          <ShareIcon style={{ marginRight: 10 }} size={25} color='#2dd4bf' />
-          <Text style={styles.share_text}>Share with friends</Text>
-        </TouchableOpacity>
-
         <TouchableOpacity style={styles.login}>
           <ArrowRightOnRectangleIcon
             style={{ marginRight: 10 }}

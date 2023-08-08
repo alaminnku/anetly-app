@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import 'react-native-url-polyfill/auto';
 import BasketProvider from './contexts/basket';
 import UserProvider from './contexts/user';
-import DrawerNavigator from './navigators/DrawerNavigator';
+import MainNavigator from './navigators/MainNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
     <NavigationContainer>
       <UserProvider>
         <BasketProvider>
-          <DrawerNavigator />
+          <MainNavigator />
         </BasketProvider>
       </UserProvider>
     </NavigationContainer>

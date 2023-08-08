@@ -8,7 +8,7 @@ import {
 } from 'react-native-heroicons/outline';
 import UserRegisterScreen from '../screens/UserRegisterScreen';
 import VendorRegisterScreen from '../screens/VendorRegisterScreen';
-import MainNavigator from './MainNavigator';
+import RestaurantsScreen from '../screens/RestaurantsScreen';
 
 // Create drawer
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -26,7 +26,7 @@ export default function DrawerNavigator() {
     >
       <Drawer.Screen
         name='Home'
-        component={MainNavigator}
+        component={RestaurantsScreen}
         options={{
           drawerIcon: ({ color }) => <HomeIcon color={color} />,
         }}

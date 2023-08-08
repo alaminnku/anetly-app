@@ -1,5 +1,5 @@
-import { useIsFocused, useNavigation } from "@react-navigation/native";
-import { useEffect, useState } from "react";
+import { useIsFocused, useNavigation } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -7,11 +7,11 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
-} from "react-native";
-import { ArrowLeftIcon } from "react-native-heroicons/outline";
-import { axiosInstance } from "../config/axios";
-import { useUser } from "../contexts/user";
-import * as SecureStore from "expo-secure-store";
+} from 'react-native';
+import { ArrowLeftIcon } from 'react-native-heroicons/outline';
+import { axiosInstance } from '../config/axios';
+import { useUser } from '../contexts/user';
+import * as SecureStore from 'expo-secure-store';
 
 export default function LoginScreen() {
   // Hooks
@@ -19,25 +19,25 @@ export default function LoginScreen() {
   const { token, setToken, setUser } = useUser();
   const { navigate } = useNavigation();
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   // Destructure form
   const { email, password } = formData;
 
-  // Handle navigation
-  useEffect(() => {
-    if (token) {
-      navigate("Home");
-    }
-  }, [token, isFocused]);
+  // // Handle navigation
+  // useEffect(() => {
+  //   if (token) {
+  //     navigate("Home");
+  //   }
+  // }, [token, isFocused]);
 
   // Handle login
   async function handleLogin() {
     try {
       // Make request to backend
-      const response = await axiosInstance.post("/users/login", {
+      const response = await axiosInstance.post('/users/login', {
         ...formData,
       });
 
@@ -49,7 +49,7 @@ export default function LoginScreen() {
       setUser(rest);
 
       // Save token to secure store
-      await SecureStore.setItemAsync("token", token);
+      await SecureStore.setItemAsync('token', token);
     } catch (err) {
       // Log error
       console.log(err);
@@ -61,9 +61,9 @@ export default function LoginScreen() {
       <SafeAreaView style={styles.header}>
         <TouchableOpacity
           style={styles.back_button}
-          onPress={() => navigate("Home")}
+          onPress={() => navigate('Root')}
         >
-          <ArrowLeftIcon color="#2dd4bf" size={20} />
+          <ArrowLeftIcon color='#2dd4bf' size={20} />
         </TouchableOpacity>
         <Text style={styles.header_text}>Login</Text>
       </SafeAreaView>
@@ -71,8 +71,8 @@ export default function LoginScreen() {
       <View style={styles.form_item}>
         <Text style={styles.label}>Email address</Text>
         <TextInput
-          autoCapitalize="none"
-          placeholder="Enter email address"
+          autoCapitalize='none'
+          placeholder='Enter email address'
           style={styles.input}
           value={email}
           onChangeText={(email) =>
@@ -87,7 +87,7 @@ export default function LoginScreen() {
       <View style={styles.form_item}>
         <Text style={styles.label}>Password</Text>
         <TextInput
-          placeholder="Enter password"
+          placeholder='Enter password'
           style={styles.input}
           value={password}
           secureTextEntry={true}
@@ -111,29 +111,29 @@ const styles = StyleSheet.create({
   login: {
     flex: 1,
     padding: 15,
-    backgroundColor: "white",
+    backgroundColor: 'white',
   },
 
   header: {
     marginTop: 60,
-    flexDirection: "row",
+    flexDirection: 'row',
     marginBottom: 40,
   },
 
   back_button: {
-    backgroundColor: "#f3f4f6",
+    backgroundColor: '#f3f4f6',
     borderRadius: 100,
     width: 40,
     height: 40,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   header_text: {
     flex: 1,
     fontSize: 24,
-    fontWeight: "600",
-    textAlign: "center",
+    fontWeight: '600',
+    textAlign: 'center',
   },
 
   form_item: {
@@ -149,20 +149,20 @@ const styles = StyleSheet.create({
     padding: 15,
     borderWidth: 2,
     borderRadius: 10,
-    borderColor: "#f3f4f6",
+    borderColor: '#f3f4f6',
   },
 
   submit_button: {
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     padding: 20,
     borderRadius: 10,
-    backgroundColor: "#2dd4bf",
+    backgroundColor: '#2dd4bf',
   },
 
   button_text: {
     fontSize: 18,
-    color: "white",
-    fontWeight: "600",
+    color: 'white',
+    fontWeight: '600',
   },
 });

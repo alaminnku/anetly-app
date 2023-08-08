@@ -1,24 +1,11 @@
-import {
-  SafeAreaView,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-native';
 import Search from '../components/home/Search';
 import Categories from '../components/home/Categories';
 import Header from '../components/home/Header';
 import FeaturedRows from '../components/home/FeaturedRows';
 import { StyleSheet } from 'react-native';
-import { useUser } from '../contexts/user';
-import { useIsFocused, useNavigation } from '@react-navigation/native';
 
-export default function HomeScreen() {
-  // Hooks
-  const { token } = useUser();
-  const { navigate } = useNavigation();
-  const isFocused = useIsFocused();
-
+export default function RestaurantsScreen() {
   return (
     <SafeAreaView style={styles.screen}>
       <Header />

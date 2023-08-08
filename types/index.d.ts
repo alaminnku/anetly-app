@@ -2,7 +2,7 @@ import { AxiosError } from 'axios';
 import { Dispatch, ReactNode, SetStateAction } from 'react';
 
 export type MainParamList = {
-  Home: undefined;
+  Root: undefined;
   Restaurant: IRestaurant;
   Basket: undefined;
   Order: undefined;
