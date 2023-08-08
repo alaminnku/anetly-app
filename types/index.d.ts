@@ -7,6 +7,7 @@ export type MainParamList = {
   Basket: undefined;
   Order: undefined;
   Delivery: undefined;
+  Login: undefined;
 };
 
 export type DrawerParamList = {

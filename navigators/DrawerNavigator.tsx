@@ -1,14 +1,14 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { DrawerParamList } from '../types';
-import CustomDrawerContent from '../components/layout/CustomDrawerContent';
+import DrawerContent from '../components/layout/DrawerContent';
 import {
   BuildingStorefrontIcon,
   HomeIcon,
   UserIcon,
 } from 'react-native-heroicons/outline';
-import UserRegisterScreen from '../screens/UserRegisterScreen';
-import VendorRegisterScreen from '../screens/VendorRegisterScreen';
-import RestaurantsScreen from '../screens/RestaurantsScreen';
+import UserScreen from '../screens/UserScreen';
+import VendorScreen from '../screens/VendorScreen';
+import HomeScreen from '../screens/HomeScreen';
 
 // Create drawer
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -22,11 +22,11 @@ export default function DrawerNavigator() {
         drawerActiveBackgroundColor: '#2dd4bf',
         drawerLabelStyle: { marginLeft: -20, fontSize: 16 },
       }}
-      drawerContent={(props) => <CustomDrawerContent {...props} />}
+      drawerContent={(props) => <DrawerContent {...props} />}
     >
       <Drawer.Screen
         name='Home'
-        component={RestaurantsScreen}
+        component={HomeScreen}
         options={{
           drawerIcon: ({ color }) => <HomeIcon color={color} />,
         }}
@@ -34,13 +34,13 @@ export default function DrawerNavigator() {
 
       <Drawer.Screen
         name='User'
-        component={UserRegisterScreen}
+        component={UserScreen}
         options={{ drawerIcon: ({ color }) => <UserIcon color={color} /> }}
       />
 
       <Drawer.Screen
         name='Vendor'
-        component={VendorRegisterScreen}
+        component={VendorScreen}
         options={{
           drawerIcon: ({ color }) => <BuildingStorefrontIcon color={color} />,
         }}

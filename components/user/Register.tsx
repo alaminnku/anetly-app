@@ -1,18 +1,13 @@
 import { DrawerActions, useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Bars3Icon } from 'react-native-heroicons/outline';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function VendorRegisterScreen() {
+export default function Register() {
   // Hooks
-  const navigation = useNavigation();
+  const { navigate, dispatch } = useNavigation();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -23,19 +18,15 @@ export default function VendorRegisterScreen() {
   // Destructure data
   const { firstName, lastName, email, password } = formData;
 
-  // Open drawer
-  const handleOpenDrawer = () =>
-    navigation.dispatch(DrawerActions.openDrawer());
-
-  async function handleVendorRegister() {}
-
+  // Handle user register
+  async function handleUserRegister() {}
   return (
     <SafeAreaView style={styles.register}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={handleOpenDrawer}>
+        <TouchableOpacity onPress={() => dispatch(DrawerActions.openDrawer())}>
           <Bars3Icon style={styles.menu_icon} color='#2dd4bf' size={30} />
         </TouchableOpacity>
-        <Text style={styles.header_text}>Add Restaurant</Text>
+        <Text style={styles.header_text}>User sign up</Text>
       </View>
 
       <View style={styles.form_item}>
@@ -104,10 +95,17 @@ export default function VendorRegisterScreen() {
 
       <TouchableOpacity
         style={styles.submit_button}
-        onPress={handleVendorRegister}
+        onPress={handleUserRegister}
       >
         <Text style={styles.button_text}>SUBMIT</Text>
       </TouchableOpacity>
+
+      <View style={styles.login}>
+        <Text style={styles.login_text}>Already have an account?</Text>
+        <TouchableOpacity onPress={() => navigate('Login')}>
+          <Text style={styles.login_action}>Log in</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
@@ -115,12 +113,14 @@ export default function VendorRegisterScreen() {
 const styles = StyleSheet.create({
   register: {
     flex: 1,
-    padding: 15,
     backgroundColor: 'white',
   },
 
   header: {
+    alignItems: 'center',
     flexDirection: 'row',
+    marginBottom: 20,
+    paddingHorizontal: 15,
   },
 
   menu_icon: {
@@ -131,11 +131,11 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '600',
     textAlign: 'center',
-    marginBottom: 20,
   },
 
   form_item: {
     marginBottom: 20,
+    paddingHorizontal: 15,
   },
 
   label: {
@@ -151,10 +151,12 @@ const styles = StyleSheet.create({
   },
 
   submit_button: {
+    marginHorizontal: 15,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
     borderRadius: 10,
+    marginBottom: 15,
     backgroundColor: '#2dd4bf',
   },
 
@@ -163,4 +165,19 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: '600',
   },
+
+  login: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 15,
+  },
+
+  login_text: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: 'gray',
+    marginRight: 5,
+  },
+
+  login_action: { fontSize: 16, fontWeight: '500', color: '#2dd4bf' },
 });

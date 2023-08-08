@@ -5,7 +5,7 @@ import Header from '../components/home/Header';
 import FeaturedRows from '../components/home/FeaturedRows';
 import { StyleSheet } from 'react-native';
 
-export default function RestaurantsScreen() {
+export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.screen}>
       <Header />

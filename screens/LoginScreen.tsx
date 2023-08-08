@@ -1,4 +1,8 @@
-import { useIsFocused, useNavigation } from '@react-navigation/native';
+import {
+  DrawerActions,
+  useIsFocused,
+  useNavigation,
+} from '@react-navigation/native';
 import { useEffect, useState } from 'react';
 import {
   View,
@@ -11,13 +15,13 @@ import {
 import { ArrowLeftIcon } from 'react-native-heroicons/outline';
 import { axiosInstance } from '../config/axios';
 import { useUser } from '../contexts/user';
-import * as SecureStore from 'expo-secure-store';
+import { setItemAsync } from 'expo-secure-store';
 
 export default function LoginScreen() {
   // Hooks
   const isFocused = useIsFocused();
   const { token, setToken, setUser } = useUser();
-  const { navigate } = useNavigation();
+  const { goBack } = useNavigation();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -26,12 +30,12 @@ export default function LoginScreen() {
   // Destructure form
   const { email, password } = formData;
 
-  // // Handle navigation
-  // useEffect(() => {
-  //   if (token) {
-  //     navigate("Home");
-  //   }
-  // }, [token, isFocused]);
+  // Handle navigation
+  useEffect(() => {
+    if (token) {
+      goBack();
+    }
+  }, [token, isFocused]);
 
   // Handle login
   async function handleLogin() {
@@ -49,7 +53,7 @@ export default function LoginScreen() {
       setUser(rest);
 
       // Save token to secure store
-      await SecureStore.setItemAsync('token', token);
+      await setItemAsync('token', token);
     } catch (err) {
       // Log error
       console.log(err);
@@ -57,16 +61,13 @@ export default function LoginScreen() {
   }
 
   return (
-    <View style={styles.login}>
-      <SafeAreaView style={styles.header}>
-        <TouchableOpacity
-          style={styles.back_button}
-          onPress={() => navigate('Root')}
-        >
+    <SafeAreaView style={styles.login}>
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.back_button} onPress={() => goBack()}>
           <ArrowLeftIcon color='#2dd4bf' size={20} />
         </TouchableOpacity>
         <Text style={styles.header_text}>Login</Text>
-      </SafeAreaView>
+      </View>
 
       <View style={styles.form_item}>
         <Text style={styles.label}>Email address</Text>
@@ -103,21 +104,21 @@ export default function LoginScreen() {
       <TouchableOpacity style={styles.submit_button} onPress={handleLogin}>
         <Text style={styles.button_text}>SUBMIT</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   login: {
     flex: 1,
-    padding: 15,
     backgroundColor: 'white',
   },
 
   header: {
-    marginTop: 60,
+    marginBottom: 20,
+    paddingHorizontal: 15,
     flexDirection: 'row',
-    marginBottom: 40,
+    alignItems: 'center',
   },
 
   back_button: {
@@ -138,6 +139,7 @@ const styles = StyleSheet.create({
 
   form_item: {
     marginBottom: 20,
+    paddingHorizontal: 15,
   },
 
   label: {
@@ -153,6 +155,7 @@ const styles = StyleSheet.create({
   },
 
   submit_button: {
+    marginHorizontal: 15,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,

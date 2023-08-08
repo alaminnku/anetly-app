@@ -5,6 +5,7 @@ import BasketScreen from '../screens/BasketScreen';
 import OrderScreen from '../screens/OrderScreen';
 import DeliveryScreen from '../screens/DeliveryScreen';
 import DrawerNavigator from './DrawerNavigator';
+import LoginScreen from '../screens/LoginScreen';
 
 // Create stack
 const Stack = createNativeStackNavigator<MainParamList>();
@@ -28,6 +29,11 @@ export default function MainNavigator() {
         name='Delivery'
         component={DeliveryScreen}
         options={{ presentation: 'fullScreenModal' }}
+      />
+      <Stack.Screen
+        name='Login'
+        component={LoginScreen}
+        // options={{ presentation: 'modal' }}
       />
     </Stack.Navigator>
   );

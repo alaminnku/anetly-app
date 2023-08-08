@@ -3,12 +3,36 @@ import {
   DrawerContentScrollView,
   DrawerContentComponentProps,
 } from '@react-navigation/drawer';
+import { DrawerActions, useNavigation } from '@react-navigation/native';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { ArrowRightOnRectangleIcon } from 'react-native-heroicons/outline';
+import {
+  ArrowRightOnRectangleIcon,
+  ShareIcon,
+} from 'react-native-heroicons/outline';
+import { useUser } from '../../contexts/user';
+import { deleteItemAsync } from 'expo-secure-store';
 
-export default function CustomDrawerContent(
-  props: DrawerContentComponentProps
-) {
+export default function DrawerContent(props: DrawerContentComponentProps) {
+  // Hooks
+  const { token, setToken, setUser } = useUser();
+  const { navigate, dispatch } = useNavigation();
+
+  // Handle log out
+  async function handleLogout() {
+    // Remove token to secure store
+    await deleteItemAsync('token');
+
+    // Update state
+    setToken(null);
+    setUser(null);
+
+    // Close drawer
+    dispatch(DrawerActions.closeDrawer());
+
+    // Navigate to home
+    navigate('Root');
+  }
+
   return (
     <View style={styles.custom_drawer}>
       <DrawerContentScrollView {...props}>
@@ -25,14 +49,22 @@ export default function CustomDrawerContent(
       </DrawerContentScrollView>
 
       <View style={styles.drawer_footer}>
-        <TouchableOpacity style={styles.login}>
-          <ArrowRightOnRectangleIcon
-            style={{ marginRight: 10 }}
-            size={25}
-            color='#2dd4bf'
-          />
-          <Text style={styles.login_text}>Log in</Text>
+        <TouchableOpacity style={styles.share}>
+          <ShareIcon size={25} color='#2dd4bf' style={{ marginRight: 10 }} />
+
+          <Text style={styles.share_text}>Share with friends</Text>
         </TouchableOpacity>
+
+        {token && (
+          <TouchableOpacity style={styles.login} onPress={handleLogout}>
+            <ArrowRightOnRectangleIcon
+              style={{ marginRight: 10 }}
+              size={25}
+              color='#2dd4bf'
+            />
+            <Text style={styles.login_text}>Log out</Text>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
