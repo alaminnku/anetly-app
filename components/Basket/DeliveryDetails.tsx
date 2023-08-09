@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { colors } from '@constants/colors';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 export default function DeliveryDetails() {
   return (
@@ -6,7 +7,7 @@ export default function DeliveryDetails() {
       <View style={styles.logoAndDuration}>
         <Image
           style={styles.restaurantLogo}
-          source={require("../../assets/logo.avif")}
+          source={require('../../assets/logo.avif')}
         />
 
         <Text>Deliver in 50-75 min</Text>
@@ -24,15 +25,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginBottom: 20,
-    backgroundColor: "white",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    backgroundColor: 'white',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 
   logoAndDuration: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 
   restaurantLogo: {
@@ -40,10 +41,10 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 100,
     marginRight: 20,
-    backgroundColor: "#d4d2d2",
+    backgroundColor: '#d4d2d2',
   },
 
   changeText: {
-    color: "#2dd4bf",
+    color: colors.apricot,
   },
 });

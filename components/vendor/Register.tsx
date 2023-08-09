@@ -9,30 +9,32 @@ import {
 } from 'react-native';
 import { Bars3Icon } from 'react-native-heroicons/outline';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import NavigateToLogin from '@components/layout/NavigateToLogin';
+import SubmitButton from '@components/layout/SubmitButton';
+import { colors } from '@constants/colors';
+import MenuHeader from '@components/layout/MenuHeader';
 
 export default function VendorRegisterScreen() {
   // Hooks
-  const { navigate, dispatch } = useNavigation();
+  const { dispatch } = useNavigation();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     password: '',
+    businessName: '',
   });
 
   // Destructure data
-  const { firstName, lastName, email, password } = formData;
+  const { firstName, lastName, email, password, businessName } = formData;
 
-  async function handleVendorRegister() {}
+  async function handleVendorRegister() {
+    console.log(formData);
+  }
 
   return (
     <SafeAreaView style={styles.register}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => dispatch(DrawerActions.openDrawer())}>
-          <Bars3Icon style={styles.menu_icon} color='#2dd4bf' size={30} />
-        </TouchableOpacity>
-        <Text style={styles.header_text}>Vendor sign up</Text>
-      </View>
+      <MenuHeader title='Vendor sign up' />
 
       <View style={styles.form_item}>
         <Text style={styles.label}>First name</Text>
@@ -98,19 +100,24 @@ export default function VendorRegisterScreen() {
         />
       </View>
 
-      <TouchableOpacity
-        style={styles.submit_button}
-        onPress={handleVendorRegister}
-      >
-        <Text style={styles.button_text}>SUBMIT</Text>
-      </TouchableOpacity>
-
-      <View style={styles.login}>
-        <Text style={styles.login_text}>Already have an account?</Text>
-        <TouchableOpacity onPress={() => navigate('Login')}>
-          <Text style={styles.login_action}>Log in</Text>
-        </TouchableOpacity>
+      <View style={styles.form_item}>
+        <Text style={styles.label}>Business name</Text>
+        <TextInput
+          placeholder='Enter business name'
+          style={styles.input}
+          value={businessName}
+          onChangeText={(businessName) =>
+            setFormData((currState) => ({
+              ...currState,
+              businessName,
+            }))
+          }
+        />
       </View>
+
+      <SubmitButton handleSubmit={handleVendorRegister} />
+
+      <NavigateToLogin />
     </SafeAreaView>
   );
 }
@@ -118,7 +125,7 @@ export default function VendorRegisterScreen() {
 const styles = StyleSheet.create({
   register: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
   },
 
   header: {
@@ -146,43 +153,15 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 17,
     marginBottom: 15,
+    fontWeight: '500',
   },
 
   input: {
     padding: 15,
-    borderWidth: 2,
-    borderRadius: 10,
-    borderColor: '#f3f4f6',
-  },
-
-  submit_button: {
-    marginHorizontal: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-    borderRadius: 10,
-    marginBottom: 15,
-    backgroundColor: '#2dd4bf',
-  },
-
-  button_text: {
-    fontSize: 18,
-    color: 'white',
-    fontWeight: '600',
-  },
-
-  login: {
-    paddingHorizontal: 15,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-
-  login_text: {
     fontSize: 16,
-    fontWeight: '500',
+    borderWidth: 2,
     color: 'gray',
-    marginRight: 5,
+    borderRadius: 10,
+    borderColor: colors.borderColor,
   },
-
-  login_action: { fontSize: 16, fontWeight: '500', color: '#2dd4bf' },
 });

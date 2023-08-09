@@ -1,6 +1,18 @@
 {
   "compilerOptions": {
-    "strict": true
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@constants/*": ["constants/*"],
+      "@assets/*": ["assets/*"],
+      "@config/*": ["config/*"],
+      "@contexts/*": ["contexts/*"],
+      "@navigators/*": ["navigators/*"],
+      "@screens/*": ["screens/*"],
+      "@types/*": ["types/*"],
+      "@utils/*": ["utils/*"]
+    }
   },
   "extends": "expo/tsconfig.base",
   "exclude": ["node_modules"]

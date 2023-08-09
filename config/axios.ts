@@ -1,5 +1,5 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: "http://localhost:5300",
+  baseURL: 'https://anetly.onrender.com',
 });
