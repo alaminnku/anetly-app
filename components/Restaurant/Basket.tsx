@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
   basketContainer: {
     height: 110,
     borderTopWidth: 1,
-    borderTopColor: colors.borderColor,
     backgroundColor: colors.white,
+    borderTopColor: colors.borderColor,
   },
 
   basket: {
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 30,
     alignSelf: 'center',
-    padding: 15,
+    padding: 16,
     borderRadius: 10,
     backgroundColor: colors.primary,
     width: Dimensions.get('screen').width - 50,

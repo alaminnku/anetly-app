@@ -27,10 +27,10 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
     paddingVertical: 20,
     paddingHorizontal: 15,
     marginBottom: 20,
+    justifyContent: 'space-between',
     backgroundColor: colors.white,
   },
 
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
 
   restaurantName: {
-    color: colors.gray,
     fontSize: 18,
+    color: colors.gray,
   },
 });
