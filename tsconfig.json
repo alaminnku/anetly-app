@@ -10,7 +10,6 @@
       "@contexts/*": ["contexts/*"],
       "@navigators/*": ["navigators/*"],
       "@screens/*": ["screens/*"],
-      "@types/*": ["types/*"],
       "@utils/*": ["utils/*"]
     }
   },

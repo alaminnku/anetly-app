@@ -106,7 +106,7 @@ export interface IUser {
   role: 'BUSINESS' | 'CUSTOMER';
 }
 
-type AxiosError = AxiosError<{
+export type CustomAxiosError = AxiosError<{
   message: string;
 }>;
 

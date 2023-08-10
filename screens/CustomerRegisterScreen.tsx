@@ -9,6 +9,7 @@ import { axiosInstance } from '@config/axios';
 import { useUser } from '@contexts/user';
 import { setItemAsync } from 'expo-secure-store';
 import { useIsFocused, useNavigation } from '@react-navigation/native';
+import { CustomAxiosError } from '../types';
 
 export default function CustomerRegisterScreen() {
   // Hooks
@@ -50,7 +51,7 @@ export default function CustomerRegisterScreen() {
       // Save token to secure store
       await setItemAsync('token', token);
     } catch (err) {
-      console.log(err);
+      console.log((err as CustomAxiosError).response?.data.message);
     }
   }
 
