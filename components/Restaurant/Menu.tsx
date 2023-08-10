@@ -10,7 +10,7 @@ interface IMenuProps {
 
 export default function Menu({ dishes, restaurant }: IMenuProps) {
   return (
-    <View style={styles.menu}>
+    <View>
       <Text style={styles.title}>Menu</Text>
 
       <View style={styles.dishes}>
@@ -23,8 +23,6 @@ export default function Menu({ dishes, restaurant }: IMenuProps) {
 }
 
 const styles = StyleSheet.create({
-  menu: {},
-
   title: {
     fontWeight: '500',
     fontSize: 20,

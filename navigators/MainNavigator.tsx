@@ -1,11 +1,11 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { MainParamList } from '../types';
-import RestaurantScreen from '../screens/RestaurantScreen';
-import BasketScreen from '../screens/BasketScreen';
-import OrderScreen from '../screens/OrderScreen';
-import DeliveryScreen from '../screens/DeliveryScreen';
+import RestaurantScreen from '@screens/RestaurantScreen';
+import BasketScreen from '@screens/BasketScreen';
+import OrderScreen from '@screens/OrderScreen';
+import DeliveryScreen from '@screens/DeliveryScreen';
 import DrawerNavigator from './DrawerNavigator';
-import LoginScreen from '../screens/LoginScreen';
+import LoginScreen from '@screens/LoginScreen';
 
 // Create stack
 const Stack = createNativeStackNavigator<MainParamList>();

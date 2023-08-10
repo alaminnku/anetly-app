@@ -13,26 +13,18 @@ import { useBasket } from '../contexts/basket';
 import MapView, { Marker } from 'react-native-maps';
 import { useUser } from '../contexts/user';
 import { useEffect } from 'react';
+import { colors } from '@constants/colors';
 
 export default function DeliveryScreen() {
   // Hooks
   const { basket } = useBasket();
   const { navigate } = useNavigation();
-  // const { token } = useUser();
-  // const isFocused = useIsFocused();
-
-  // // Handle navigation
-  // useEffect(() => {
-  //   if (!token) {
-  //     navigate("Login");
-  //   }
-  // }, [token, isFocused]);
 
   return (
     <View style={styles.delivery}>
       <SafeAreaView style={styles.header}>
         <TouchableOpacity onPress={() => navigate('Root')}>
-          <XMarkIcon size={30} color='white' />
+          <XMarkIcon size={30} color={colors.white} />
         </TouchableOpacity>
 
         <Text style={styles.orderHelp}>Order help</Text>
@@ -43,7 +35,7 @@ export default function DeliveryScreen() {
           <Text style={styles.arrivalText}>Estimated Arrival</Text>
           <Text style={styles.estimatedDuration}>45-55 Minutes</Text>
 
-          <Progress.Bar indeterminate={true} color='#2dd4bf' />
+          <Progress.Bar indeterminate={true} color={colors.primary} />
 
           <Text style={styles.preparationMessage}>
             Your order at {basket.restaurant.name} is being prepared
@@ -72,7 +64,7 @@ export default function DeliveryScreen() {
             longitude: basket.restaurant.longitude,
           }}
           identifier='origin'
-          pinColor='#2dd4bf'
+          pinColor={colors.primary}
           title={basket.restaurant.name}
         />
       </MapView>
@@ -101,7 +93,7 @@ export default function DeliveryScreen() {
 const styles = StyleSheet.create({
   delivery: {
     flex: 1,
-    backgroundColor: '#2dd4bf',
+    backgroundColor: colors.primary,
   },
 
   header: {
@@ -114,23 +106,23 @@ const styles = StyleSheet.create({
 
   orderHelp: {
     fontSize: 20,
-    color: '#ccfbf1',
+    color: colors.almostWhite,
   },
 
   estimatedTime: {
     zIndex: 11,
     flexDirection: 'row',
-    justifyContent: 'space-between',
     margin: 15,
     borderRadius: 10,
     padding: 20,
-    backgroundColor: 'white',
+    justifyContent: 'space-between',
+    backgroundColor: colors.white,
   },
 
   arrivalText: {
     fontSize: 18,
-    color: '#94a3b8',
     marginBottom: 10,
+    color: colors.slateGray,
   },
 
   estimatedDuration: {
@@ -141,8 +133,8 @@ const styles = StyleSheet.create({
 
   preparationMessage: {
     marginTop: 15,
-    color: '#94a3b8',
     fontWeight: '500',
+    color: colors.slateGray,
   },
 
   bikerImage: {
@@ -159,10 +151,10 @@ const styles = StyleSheet.create({
   rider: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
     padding: 15,
     paddingBottom: 30,
-    backgroundColor: 'white',
+    justifyContent: 'space-between',
+    backgroundColor: colors.white,
   },
 
   image_and_name: {
@@ -175,7 +167,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 50,
     marginRight: 20,
-    backgroundColor: '#d4d2d2',
+    backgroundColor: colors.almostWhite,
   },
 
   rider_name: {
@@ -185,12 +177,12 @@ const styles = StyleSheet.create({
   },
 
   rider_about: {
-    color: '#94a3b8',
+    color: colors.slateGray,
   },
 
   cancel: {
-    color: '#2dd4bf',
     fontSize: 18,
     fontWeight: '600',
+    color: colors.primary,
   },
 });

@@ -28,7 +28,7 @@ export default function FeaturedRow({
 
 const styles = StyleSheet.create({
   featuredRow: {
-    marginBottom: 20,
+    marginVertical: 10,
   },
 
   content: { margin: 15, marginTop: 0 },
@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
   },
 
   description: {
-    color: colors.almostWhite,
+    color: colors.gray,
   },
 });

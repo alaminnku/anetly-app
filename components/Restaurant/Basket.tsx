@@ -12,8 +12,8 @@ import { colors } from '@constants/colors';
 
 export default function Basket() {
   // Hooks
-  const { basketPriceTotal, basketQuantityTotal } = useBasket();
   const { navigate } = useNavigation();
+  const { basketPriceTotal, basketQuantityTotal } = useBasket();
 
   return (
     <View style={styles.basketContainer}>

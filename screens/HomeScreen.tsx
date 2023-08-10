@@ -12,7 +12,7 @@ export default function HomeScreen() {
       <MenuHeader title='Home' />
       <Search />
       <ScrollView style={styles.body}>
-        <Categories />
+        {/* <Categories /> */}
         <FeaturedRows />
       </ScrollView>
     </SafeAreaView>

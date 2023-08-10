@@ -13,6 +13,7 @@ import VendorRegisterScreen from '../screens/VendorRegisterScreen';
 import HomeScreen from '../screens/HomeScreen';
 import { useUser } from '../contexts/user';
 import MainNavigator from './MainNavigator';
+import { colors } from '@constants/colors';
 
 // Create drawer
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -25,8 +26,8 @@ export default function DrawerNavigator() {
     <Drawer.Navigator
       screenOptions={{
         headerShown: false,
-        drawerActiveTintColor: 'black',
-        drawerActiveBackgroundColor: '#2dd4bf',
+        drawerActiveTintColor: colors.almostWhite,
+        drawerActiveBackgroundColor: colors.primary,
         drawerLabelStyle: { marginLeft: -20, fontSize: 16 },
       }}
       drawerContent={(props) => <DrawerContent {...props} />}
