@@ -5,9 +5,10 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
-import { urlFor } from '../../config/sanity';
+import { urlFor } from '@config/sanity';
 import { useNavigation } from '@react-navigation/native';
 import { ArrowLeftIcon } from 'react-native-heroicons/outline';
+import { colors } from '@constants/colors';
 
 interface IRestaurantHeaderProps {
   logo: {
@@ -34,7 +35,7 @@ export default function RestaurantHeader({ logo }: IRestaurantHeaderProps) {
           navigate('Root');
         }}
       >
-        <ArrowLeftIcon color='#2dd4bf' size={20} />
+        <ArrowLeftIcon color={colors.primary} size={20} />
       </TouchableOpacity>
     </View>
   );
@@ -46,19 +47,19 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: Dimensions.get('window').width,
     height: 200,
+    width: Dimensions.get('window').width,
   },
 
   back_button: {
-    position: 'absolute',
     top: 60,
     left: 20,
-    backgroundColor: '#f3f4f6',
-    borderRadius: 100,
     width: 40,
     height: 40,
+    borderRadius: 100,
     alignItems: 'center',
+    position: 'absolute',
     justifyContent: 'center',
+    backgroundColor: colors.almostWhite,
   },
 });

@@ -1,7 +1,8 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { XCircleIcon } from "react-native-heroicons/solid";
-import { useBasket } from "../../contexts/basket";
-import { useNavigation } from "@react-navigation/native";
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { XCircleIcon } from 'react-native-heroicons/solid';
+import { useBasket } from '@contexts/basket';
+import { useNavigation } from '@react-navigation/native';
+import { colors } from '@constants/colors';
 
 export default function Header() {
   // Hooks
@@ -16,7 +17,7 @@ export default function Header() {
       </View>
 
       <TouchableOpacity onPress={() => goBack()}>
-        <XCircleIcon size={36} color="#2dd4bf" />
+        <XCircleIcon size={36} color={colors.primary} />
       </TouchableOpacity>
     </View>
   );
@@ -24,23 +25,23 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     paddingVertical: 20,
     paddingHorizontal: 15,
     marginBottom: 20,
-    backgroundColor: "white",
+    backgroundColor: colors.white,
   },
 
   basketText: {
     fontSize: 22,
-    fontWeight: "600",
+    fontWeight: '600',
     marginBottom: 5,
   },
 
   restaurantName: {
-    color: "#6b7280",
+    color: colors.gray,
     fontSize: 18,
   },
 });

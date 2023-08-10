@@ -14,7 +14,7 @@ export default function MenuHeader({ title }: IProps) {
   return (
     <View style={styles.header}>
       <TouchableOpacity onPress={() => dispatch(DrawerActions.openDrawer())}>
-        <Bars3Icon style={styles.menu_icon} color={colors.apricot} size={30} />
+        <Bars3Icon style={styles.menu_icon} color={colors.primary} size={30} />
       </TouchableOpacity>
       <Text style={styles.header_text}>{title}</Text>
     </View>

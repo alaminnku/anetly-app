@@ -5,10 +5,11 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
-} from "react-native";
-import { formatCurrencyToUSD } from "../../utils";
-import { useBasket } from "../../contexts/basket";
-import { urlFor } from "../../config/sanity";
+} from 'react-native';
+import { formatCurrencyToUSD } from '@utils/index';
+import { useBasket } from '@contexts/basket';
+import { urlFor } from '@config/sanity';
+import { colors } from '@constants/colors';
 
 export default function Dishes() {
   // Hooks
@@ -56,21 +57,21 @@ const styles = StyleSheet.create({
   dish: {
     paddingVertical: 10,
     paddingHorizontal: 15,
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "white",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.white,
+    justifyContent: 'space-between',
   },
 
   dishDetails: {
-    maxWidth: "50%",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    maxWidth: '50%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 
   quantity: {
-    color: "#2dd4bf",
+    color: colors.primary,
     marginRight: 10,
   },
 
@@ -82,13 +83,13 @@ const styles = StyleSheet.create({
   },
 
   priceDetails: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 
   remove: {
     marginLeft: 10,
-    color: "#2dd4bf",
+    color: colors.primary,
   },
 });

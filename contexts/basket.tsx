@@ -1,11 +1,11 @@
-import { useState, createContext, useContext } from "react";
+import { useState, createContext, useContext } from 'react';
 import {
   IBasketContext,
   IContextProviderProps,
   IDish,
   IBasket,
   IBasketRestaurant,
-} from "../types";
+} from '../types';
 
 // Create context
 const BasketContext = createContext({} as IBasketContext);
@@ -18,8 +18,8 @@ export default function BasketProvider({ children }: IContextProviderProps) {
   // Hooks
   const [basket, setBasket] = useState<IBasket>({
     restaurant: {
-      _id: "",
-      name: "",
+      _id: '',
+      name: '',
       latitude: 0,
       longitude: 0,
     },

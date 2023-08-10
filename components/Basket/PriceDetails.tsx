@@ -4,10 +4,11 @@ import {
   TouchableOpacity,
   Dimensions,
   StyleSheet,
-} from "react-native";
-import { formatCurrencyToUSD } from "../../utils";
-import { useBasket } from "../../contexts/basket";
-import { useNavigation } from "@react-navigation/native";
+} from 'react-native';
+import { formatCurrencyToUSD } from '@utils/index';
+import { useBasket } from '@contexts/basket';
+import { useNavigation } from '@react-navigation/native';
+import { colors } from '@constants/colors';
 
 export default function PriceDetails() {
   // Hooks
@@ -39,7 +40,7 @@ export default function PriceDetails() {
 
       <TouchableOpacity
         style={styles.placeOrder}
-        onPress={() => navigate("Order")}
+        onPress={() => navigate('Order')}
       >
         <Text style={styles.placeOrderText}>Place Order</Text>
       </TouchableOpacity>
@@ -49,57 +50,57 @@ export default function PriceDetails() {
 
 const styles = StyleSheet.create({
   priceDetails: {
-    backgroundColor: "white",
+    backgroundColor: colors.white,
     padding: 15,
     paddingBottom: 30,
 
-    width: Dimensions.get("screen").width,
+    width: Dimensions.get('screen').width,
   },
 
   subtotal: {
     marginBottom: 15,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 
   deliveryFee: {
     marginBottom: 15,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 
   total: {
     marginBottom: 20,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 
   subtotalText: {
-    color: "gray",
+    color: colors.gray,
   },
 
   deliveryText: {
-    color: "gray",
+    color: colors.gray,
   },
 
   totalText: {
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 
   placeOrder: {
-    alignItems: "center",
+    alignItems: 'center',
     padding: 20,
     borderRadius: 10,
-    backgroundColor: "#2dd4bf",
+    backgroundColor: colors.primary,
   },
 
   placeOrderText: {
-    fontWeight: "600",
+    fontWeight: '600',
     fontSize: 18,
-    color: "white",
+    color: colors.white,
   },
 });

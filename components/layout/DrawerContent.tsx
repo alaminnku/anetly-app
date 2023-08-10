@@ -9,8 +9,9 @@ import {
   ArrowRightOnRectangleIcon,
   ShareIcon,
 } from 'react-native-heroicons/outline';
-import { useUser } from '../../contexts/user';
+import { useUser } from '@contexts/user';
 import { deleteItemAsync } from 'expo-secure-store';
+import { colors } from '@constants/colors';
 
 export default function DrawerContent(props: DrawerContentComponentProps) {
   // Hooks
@@ -52,7 +53,11 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
 
       <View style={styles.drawer_footer}>
         <TouchableOpacity style={styles.share}>
-          <ShareIcon size={25} color='#2dd4bf' style={{ marginRight: 10 }} />
+          <ShareIcon
+            size={25}
+            color={colors.primary}
+            style={{ marginRight: 10 }}
+          />
 
           <Text style={styles.share_text}>Invite friends</Text>
         </TouchableOpacity>
@@ -64,7 +69,7 @@ export default function DrawerContent(props: DrawerContentComponentProps) {
           <ArrowRightOnRectangleIcon
             style={{ marginRight: 10 }}
             size={25}
-            color='#2dd4bf'
+            color={colors.primary}
           />
           <Text style={styles.login_text}>{token ? 'Log out' : 'Sign in'}</Text>
         </TouchableOpacity>
@@ -90,7 +95,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 100,
     marginRight: 15,
-    backgroundColor: '#f3f4f6',
+    backgroundColor: colors.almostWhite,
   },
 
   app_name: {
@@ -102,7 +107,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     borderTopWidth: 1,
     paddingHorizontal: 15,
-    borderTopColor: '#f3f4f6',
+    borderTopColor: colors.almostWhite,
   },
 
   share: {

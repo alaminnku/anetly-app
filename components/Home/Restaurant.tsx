@@ -1,9 +1,10 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import { StarIcon } from "react-native-heroicons/solid";
-import { MapPinIcon } from "react-native-heroicons/outline";
-import { IRestaurant } from "../../types";
-import { urlFor } from "../../config/sanity";
-import { useNavigation } from "@react-navigation/native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { StarIcon } from 'react-native-heroicons/solid';
+import { MapPinIcon } from 'react-native-heroicons/outline';
+import { IRestaurant } from '../../types';
+import { urlFor } from '@config/sanity';
+import { useNavigation } from '@react-navigation/native';
+import { colors } from '@constants/colors';
 
 interface IRestaurantProps extends IRestaurant {}
 
@@ -24,7 +25,7 @@ export default function Restaurant({
 
   // Handle restaurant press
   function handlePress() {
-    navigate("Restaurant", {
+    navigate('Restaurant', {
       _id,
       logo,
       name,
@@ -49,7 +50,7 @@ export default function Restaurant({
         <Text style={styles.title}>{name}</Text>
 
         <View style={styles.rating}>
-          <StarIcon color="green" opacity={0.5} size={22} />
+          <StarIcon color='green' opacity={0.5} size={22} />
 
           <Text style={styles.rating_and_genre}>
             {rating} . <Text style={styles.genre}>{category.name}</Text>
@@ -57,7 +58,7 @@ export default function Restaurant({
         </View>
 
         <View style={styles.location}>
-          <MapPinIcon color="gray" opacity={0.4} size={22} />
+          <MapPinIcon color='gray' opacity={0.4} size={22} />
           <Text style={styles.address}>Nearby . {address}</Text>
         </View>
       </View>
@@ -68,8 +69,8 @@ export default function Restaurant({
 const styles = StyleSheet.create({
   restaurant: {
     marginRight: 15,
-    backgroundColor: "white",
-    shadowColor: "black",
+    backgroundColor: colors.white,
+    shadowColor: colors.black,
     shadowOffset: {
       width: 0,
       height: 3,
@@ -89,30 +90,30 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 16,
     marginBottom: 5,
   },
 
   rating: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 5,
   },
 
   rating_and_genre: {
-    color: "#22c55e",
+    color: colors.green,
     marginLeft: 5,
-    fontWeight: "500",
+    fontWeight: '500',
   },
 
   genre: {
-    color: "#6b7280",
+    color: colors.gray,
   },
 
   location: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 
   address: {

@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native';
 import { IBasketRestaurant, IDish } from '../../types';
 import Dish from './Dish';
+import { colors } from '@constants/colors';
 
 interface IMenuProps {
   dishes: IDish[];
@@ -31,6 +32,6 @@ const styles = StyleSheet.create({
   },
 
   dishes: {
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
   },
 });

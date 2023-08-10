@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet } from "react-native";
-import Restaurants from "./Restaurants";
-import { IRestaurant } from "../../types";
+import { View, Text, StyleSheet } from 'react-native';
+import Restaurants from './Restaurants';
+import { IRestaurant } from '../../types';
+import { colors } from '@constants/colors';
 
 interface IFeaturedRowProps {
   name: string;
@@ -33,12 +34,12 @@ const styles = StyleSheet.create({
   content: { margin: 15, marginTop: 0 },
 
   name: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 18,
     marginBottom: 5,
   },
 
   description: {
-    color: "#6b7280",
+    color: colors.almostWhite,
   },
 });

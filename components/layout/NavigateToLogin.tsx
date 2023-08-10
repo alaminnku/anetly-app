@@ -35,6 +35,6 @@ const styles = StyleSheet.create({
   navigation_action: {
     fontSize: 16,
     fontWeight: '500',
-    color: colors.apricot,
+    color: colors.primary,
   },
 });

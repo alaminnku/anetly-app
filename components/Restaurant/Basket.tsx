@@ -4,10 +4,11 @@ import {
   StyleSheet,
   Dimensions,
   View,
-} from "react-native";
-import { useBasket } from "../../contexts/basket";
-import { useNavigation } from "@react-navigation/native";
-import { formatCurrencyToUSD } from "../../utils";
+} from 'react-native';
+import { useBasket } from '@contexts/basket';
+import { useNavigation } from '@react-navigation/native';
+import { formatCurrencyToUSD } from '@utils/index';
+import { colors } from '@constants/colors';
 
 export default function Basket() {
   // Hooks
@@ -18,7 +19,7 @@ export default function Basket() {
     <View style={styles.basketContainer}>
       <TouchableOpacity
         style={styles.basket}
-        onPress={() => navigate("Basket")}
+        onPress={() => navigate('Basket')}
       >
         <Text style={styles.basketQuantity}>{basketQuantityTotal}</Text>
 
@@ -36,43 +37,43 @@ const styles = StyleSheet.create({
   basketContainer: {
     height: 110,
     borderTopWidth: 1,
-    borderTopColor: "#e5e7eb",
-    backgroundColor: "white",
+    borderTopColor: colors.borderColor,
+    backgroundColor: colors.white,
   },
 
   basket: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    position: "absolute",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    position: 'absolute',
     bottom: 30,
-    alignSelf: "center",
+    alignSelf: 'center',
     padding: 15,
     borderRadius: 10,
-    backgroundColor: "#2dd4bf",
-    width: Dimensions.get("screen").width - 50,
+    backgroundColor: colors.primary,
+    width: Dimensions.get('screen').width - 50,
   },
 
   basketQuantity: {
-    alignItems: "center",
-    justifyContent: "center",
-    color: "white",
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: colors.white,
     fontSize: 20,
-    fontWeight: "600",
+    fontWeight: '600',
     paddingVertical: 5,
     paddingHorizontal: 8,
-    backgroundColor: "#14b8a6",
+    backgroundColor: colors.primary,
   },
 
   basketText: {
-    color: "white",
+    color: colors.white,
     fontSize: 20,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 
   basketPrice: {
-    color: "white",
+    color: colors.white,
     fontSize: 20,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 });

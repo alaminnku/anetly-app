@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginBottom: 20,
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -41,10 +41,10 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 100,
     marginRight: 20,
-    backgroundColor: '#d4d2d2',
+    backgroundColor: colors.almostWhite,
   },
 
   changeText: {
-    color: colors.apricot,
+    color: colors.primary,
   },
 });

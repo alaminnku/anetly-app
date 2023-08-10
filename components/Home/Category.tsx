@@ -1,6 +1,7 @@
-import { Text, Image, TouchableOpacity, StyleSheet } from "react-native";
-import { ICategory } from "../../types";
-import { urlFor } from "../../config/sanity";
+import { Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { ICategory } from '../../types';
+import { urlFor } from '@config/sanity';
+import { colors } from '@constants/colors';
 
 interface ICategoryProps extends ICategory {}
 
@@ -19,7 +20,7 @@ export default function Category({ name, image }: ICategoryProps) {
 
 const styles = StyleSheet.create({
   category: {
-    position: "relative",
+    position: 'relative',
     marginRight: 10,
   },
 
@@ -31,9 +32,9 @@ const styles = StyleSheet.create({
   title: {
     left: 5,
     bottom: 5,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 16,
-    color: "white",
-    position: "absolute",
+    color: colors.white,
+    position: 'absolute',
   },
 });

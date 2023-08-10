@@ -1,8 +1,5 @@
-import { DrawerActions, useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Bars3Icon } from 'react-native-heroicons/outline';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import NavigateToLogin from '@components/layout/NavigateToLogin';
 import SubmitButton from '@components/layout/SubmitButton';
@@ -11,7 +8,6 @@ import MenuHeader from '@components/layout/MenuHeader';
 
 export default function Register() {
   // Hooks
-  const { navigate, dispatch } = useNavigation();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -105,7 +101,7 @@ export default function Register() {
 const styles = StyleSheet.create({
   register: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
   },
 
   form_item: {

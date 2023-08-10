@@ -1,12 +1,12 @@
-import { useState, createContext, useContext, useEffect } from "react";
+import { useState, createContext, useContext, useEffect } from 'react';
 import {
   AxiosError,
   IContextProviderProps,
   IUser,
   IUserContext,
-} from "../types";
-import * as SecureStore from "expo-secure-store";
-import { axiosInstance } from "../config/axios";
+} from '../types';
+import * as SecureStore from 'expo-secure-store';
+import { axiosInstance } from '@config/axios';
 
 // Create context
 const UserContext = createContext({} as IUserContext);
@@ -23,7 +23,7 @@ export default function UserProvider({ children }: IContextProviderProps) {
   // Get local token
   async function getLocalToken() {
     // Get token
-    const localToken = await SecureStore.getItemAsync("token");
+    const localToken = await SecureStore.getItemAsync('token');
 
     // Update state
     setToken(localToken);
@@ -33,7 +33,7 @@ export default function UserProvider({ children }: IContextProviderProps) {
   async function authUser() {
     try {
       // Make request to the backend
-      const response = await axiosInstance.get("/users/me", {
+      const response = await axiosInstance.get('/users/me', {
         headers: {
           Authorization: `${token}`,
         },
@@ -50,7 +50,7 @@ export default function UserProvider({ children }: IContextProviderProps) {
 
       // Remove token
       if (err.response?.status === 401) {
-        await SecureStore.deleteItemAsync("token");
+        await SecureStore.deleteItemAsync('token');
       }
     }
   }

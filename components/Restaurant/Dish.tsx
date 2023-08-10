@@ -5,12 +5,13 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
-} from "react-native";
-import { IBasketRestaurant, IDish } from "../../types";
-import { urlFor } from "../../config/sanity";
-import { useEffect, useState } from "react";
-import { MinusIcon, PlusIcon } from "react-native-heroicons/solid";
-import { useBasket } from "../../contexts/basket";
+} from 'react-native';
+import { IBasketRestaurant, IDish } from '../../types';
+import { urlFor } from '@config/sanity';
+import { useEffect, useState } from 'react';
+import { MinusIcon, PlusIcon } from 'react-native-heroicons/solid';
+import { useBasket } from '@contexts/basket';
+import { colors } from '@constants/colors';
 
 interface IDishProps {
   dish: IDish;
@@ -60,7 +61,7 @@ export default function Dish({ dish, restaurant }: IDishProps) {
                 removeFromBasket(dish, restaurant);
             }}
           >
-            <MinusIcon color="white" size={20} />
+            <MinusIcon color='white' size={20} />
           </TouchableOpacity>
 
           <Text style={styles.quantity}>{quantity}</Text>
@@ -72,7 +73,7 @@ export default function Dish({ dish, restaurant }: IDishProps) {
                 addToBasket(dish, restaurant);
             }}
           >
-            <PlusIcon color="white" size={20} />
+            <PlusIcon color={colors.white} size={20} />
           </TouchableOpacity>
         </View>
       )}
@@ -84,32 +85,32 @@ const styles = StyleSheet.create({
   dish: {
     padding: 15,
     borderBottomWidth: 1,
-    borderBottomColor: "#e5e7eb",
+    borderBottomColor: colors.borderColor,
   },
 
   details: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 
   content: {
-    width: Dimensions.get("window").width - 140,
+    width: Dimensions.get('window').width - 140,
   },
 
   name: {
     fontSize: 20,
-    fontWeight: "500",
+    fontWeight: '500',
     marginBottom: 10,
   },
 
   description: {
-    color: "#6b7280",
+    color: colors.gray,
     marginBottom: 10,
   },
 
   price: {
     fontSize: 16,
-    fontWeight: "500",
+    fontWeight: '500',
   },
 
   image: {
@@ -118,19 +119,19 @@ const styles = StyleSheet.create({
   },
 
   controller: {
-    flexDirection: "row",
-    alignItems: "center",
     marginTop: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 
   minus: {
     width: 30,
     height: 30,
-    borderRadius: 100,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#2dd4bf",
     marginRight: 10,
+    borderRadius: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.primary,
   },
 
   quantity: {
@@ -140,10 +141,10 @@ const styles = StyleSheet.create({
   plus: {
     width: 30,
     height: 30,
-    borderRadius: 100,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#2dd4bf",
     marginLeft: 10,
+    borderRadius: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.primary,
   },
 });

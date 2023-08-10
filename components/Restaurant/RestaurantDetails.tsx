@@ -1,5 +1,6 @@
-import { View, Text, StyleSheet } from "react-native";
-import { MapPinIcon, StarIcon } from "react-native-heroicons/solid";
+import { colors } from '@constants/colors';
+import { View, Text, StyleSheet } from 'react-native';
+import { MapPinIcon, StarIcon } from 'react-native-heroicons/solid';
 
 interface IRestaurantDetailsProps {
   name: string;
@@ -23,7 +24,12 @@ export default function RestaurantDetails({
       <Text style={styles.name}>{name}</Text>
       <View style={styles.about}>
         <View style={styles.rating}>
-          <StarIcon style={styles.star} color="green" opacity={0.5} size={22} />
+          <StarIcon
+            style={styles.star}
+            color={colors.green}
+            opacity={0.5}
+            size={22}
+          />
 
           <Text style={styles.rating_and_category}>
             {rating} . {category.name}
@@ -33,7 +39,7 @@ export default function RestaurantDetails({
         <View style={styles.location}>
           <MapPinIcon
             style={styles.map_icon}
-            color="gray"
+            color={colors.gray}
             opacity={0.4}
             size={22}
           />
@@ -49,23 +55,23 @@ export default function RestaurantDetails({
 const styles = StyleSheet.create({
   details: {
     padding: 15,
-    backgroundColor: "white",
+    backgroundColor: colors.white,
   },
 
   name: {
     fontSize: 32,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 5,
   },
 
   about: {
-    flexDirection: "row",
+    flexDirection: 'row',
     marginBottom: 10,
   },
 
   rating: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginRight: 10,
   },
 
@@ -74,12 +80,12 @@ const styles = StyleSheet.create({
   },
 
   rating_and_category: {
-    color: "#6b7280",
+    color: colors.gray,
   },
 
   location: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 
   map_icon: {
@@ -87,11 +93,11 @@ const styles = StyleSheet.create({
   },
 
   address: {
-    color: "#6b7280",
+    color: colors.gray,
   },
 
   description: {
-    color: "#6b7280",
-    borderBottomColor: "red",
+    color: colors.gray,
+    borderBottomColor: 'red',
   },
 });

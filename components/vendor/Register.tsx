@@ -1,13 +1,6 @@
-import { DrawerActions, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
-import { Bars3Icon } from 'react-native-heroicons/outline';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import NavigateToLogin from '@components/layout/NavigateToLogin';
 import SubmitButton from '@components/layout/SubmitButton';

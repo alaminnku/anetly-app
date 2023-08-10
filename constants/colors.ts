@@ -2,9 +2,10 @@ export const colors = {
   black: '#000',
   white: '#fff',
   gray: '#666',
-  apricot: '#f36f46',
-  orange: '#f78f1e',
+  green: '#22c55e',
   lightGray: '#ccc',
-  almostWhite: '#fafafa',
+  primary: '#f36f46',
+  secondary: '#f78f1e',
+  almostWhite: '#f3f4f6',
   borderColor: '#eaeaea',
 };
