@@ -13,6 +13,7 @@ import BusinessRegisterScreen from '../screens/BusinessRegisterScreen';
 import HomeScreen from '../screens/HomeScreen';
 import { useUser } from '../contexts/user';
 import { colors } from '@constants/colors';
+import BusinessScreen from '@screens/BusinessScreen';
 
 // Create drawer
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -36,10 +37,12 @@ export default function DrawerNavigator() {
           {user.role === 'BUSINESS' ? (
             <>
               <Drawer.Screen
-                name='Restaurant'
-                component={HomeScreen}
+                name='Business'
+                component={BusinessScreen}
                 options={{
-                  drawerIcon: ({ color }) => <HomeIcon color={color} />,
+                  drawerIcon: ({ color }) => (
+                    <BuildingStorefrontIcon color={color} />
+                  ),
                 }}
               />
 

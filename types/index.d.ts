@@ -98,12 +98,28 @@ export interface IBasketContext {
   basketQuantityTotal: number;
 }
 
+export interface IIitem {
+  name: string;
+  image: string;
+  price: number;
+  description: string;
+}
+
+export interface IBusiness {
+  name: string;
+  address: string;
+  category: string;
+  items?: IItem[];
+  status: 'OPEN' | 'CLOSED';
+}
+
 export interface IUser {
   _id: string;
   firstName: string;
   lastName: string;
   email: string;
   role: 'BUSINESS' | 'CUSTOMER';
+  business?: IBusiness;
 }
 
 export type CustomAxiosError = AxiosError<{
