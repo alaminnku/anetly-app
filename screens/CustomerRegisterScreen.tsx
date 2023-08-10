@@ -1,13 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import NavigateToLogin from '@components/layout/NavigateToLogin';
 import SubmitButton from '@components/layout/SubmitButton';
 import { colors } from '@constants/colors';
 import MenuHeader from '@components/layout/MenuHeader';
+import { axiosInstance } from '@config/axios';
+import { useUser } from '@contexts/user';
+import { setItemAsync } from 'expo-secure-store';
+import { useIsFocused, useNavigation } from '@react-navigation/native';
 
-export default function Register() {
+export default function CustomerRegisterScreen() {
   // Hooks
+  const isFocused = useIsFocused();
+  const { goBack } = useNavigation();
+  const { token, setToken, setUser } = useUser();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -15,12 +22,36 @@ export default function Register() {
     password: '',
   });
 
+  // Handle navigation
+  useEffect(() => {
+    if (token) {
+      goBack();
+    }
+  }, [token, isFocused]);
+
   // Destructure data
   const { firstName, lastName, email, password } = formData;
 
   // Handle user register
-  async function handleUserRegister() {
-    console.log(formData);
+  async function handleCustomerRegister() {
+    try {
+      const response = await axiosInstance.post('/users/register', {
+        ...formData,
+        role: 'CUSTOMER',
+      });
+
+      // Destructure data
+      const { token, ...rest } = response.data;
+
+      // Update states
+      setToken(token);
+      setUser(rest);
+
+      // Save token to secure store
+      await setItemAsync('token', token);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
@@ -91,7 +122,7 @@ export default function Register() {
         />
       </View>
 
-      <SubmitButton handleSubmit={handleUserRegister} />
+      <SubmitButton handleSubmit={handleCustomerRegister} />
 
       <NavigateToLogin />
     </SafeAreaView>

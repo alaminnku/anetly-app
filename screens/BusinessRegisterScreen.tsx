@@ -1,4 +1,3 @@
-import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -7,9 +6,8 @@ import SubmitButton from '@components/layout/SubmitButton';
 import { colors } from '@constants/colors';
 import MenuHeader from '@components/layout/MenuHeader';
 
-export default function VendorRegisterScreen() {
+export default function BusinessRegisterScreen() {
   // Hooks
-  const { dispatch } = useNavigation();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -21,19 +19,19 @@ export default function VendorRegisterScreen() {
   // Destructure data
   const { firstName, lastName, email, password, businessName } = formData;
 
-  async function handleVendorRegister() {
+  async function handleBusinessRegister() {
     console.log(formData);
   }
 
   return (
     <SafeAreaView style={styles.register}>
-      <MenuHeader title='Vendor sign up' />
+      <MenuHeader title='Business sign up' />
 
       <View style={styles.form_item}>
         <Text style={styles.label}>First name</Text>
         <TextInput
           autoCapitalize='none'
-          placeholder='Enter first name'
+          placeholder="Enter owner's first name"
           style={styles.input}
           value={firstName}
           onChangeText={(firstName) =>
@@ -49,7 +47,7 @@ export default function VendorRegisterScreen() {
         <Text style={styles.label}>Last name</Text>
         <TextInput
           autoCapitalize='none'
-          placeholder='Enter last name'
+          placeholder="Enter owner's last name"
           style={styles.input}
           value={lastName}
           onChangeText={(lastName) =>
@@ -108,7 +106,7 @@ export default function VendorRegisterScreen() {
         />
       </View>
 
-      <SubmitButton handleSubmit={handleVendorRegister} />
+      <SubmitButton handleSubmit={handleBusinessRegister} />
 
       <NavigateToLogin />
     </SafeAreaView>

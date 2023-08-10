@@ -8,11 +8,10 @@ import {
   HeartIcon,
   ChatBubbleLeftRightIcon,
 } from 'react-native-heroicons/outline';
-import UserRegisterScreen from '../screens/UserRegisterScreen';
-import VendorRegisterScreen from '../screens/VendorRegisterScreen';
+import CustomerRegisterScreen from '../screens/CustomerRegisterScreen';
+import BusinessRegisterScreen from '../screens/BusinessRegisterScreen';
 import HomeScreen from '../screens/HomeScreen';
 import { useUser } from '../contexts/user';
-import MainNavigator from './MainNavigator';
 import { colors } from '@constants/colors';
 
 // Create drawer
@@ -34,7 +33,7 @@ export default function DrawerNavigator() {
     >
       {token && user ? (
         <>
-          {user.role === 'VENDOR' ? (
+          {user.role === 'BUSINESS' ? (
             <>
               <Drawer.Screen
                 name='Restaurant'
@@ -83,13 +82,13 @@ export default function DrawerNavigator() {
 
           <Drawer.Screen
             name='User'
-            component={UserRegisterScreen}
+            component={CustomerRegisterScreen}
             options={{ drawerIcon: ({ color }) => <UserIcon color={color} /> }}
           />
 
           <Drawer.Screen
-            name='Vendor'
-            component={VendorRegisterScreen}
+            name='Business'
+            component={BusinessRegisterScreen}
             options={{
               drawerIcon: ({ color }) => (
                 <BuildingStorefrontIcon color={color} />

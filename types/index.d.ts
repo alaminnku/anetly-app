@@ -13,7 +13,7 @@ export type MainParamList = {
 export type DrawerParamList = {
   Home: undefined;
   User: undefined;
-  Vendor: undefined;
+  Business: undefined;
   Restaurant: undefined;
   Items: undefined;
   Favorite: undefined;
@@ -103,7 +103,7 @@ export interface IUser {
   firstName: string;
   lastName: string;
   email: string;
-  role: 'VENDOR' | 'CUSTOMER';
+  role: 'BUSINESS' | 'CUSTOMER';
 }
 
 type AxiosError = AxiosError<{
