@@ -1,6 +1,12 @@
 import { colors } from '@constants/colors';
 import { DrawerActions, useNavigation } from '@react-navigation/native';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 import { Bars3Icon } from 'react-native-heroicons/outline';
 import { IBusiness } from 'types';
 
@@ -13,7 +19,7 @@ export default function BusinessHeader({ business }: IProps) {
   const { dispatch, navigate } = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.business_details}>
         <TouchableOpacity onPress={() => dispatch(DrawerActions.openDrawer())}>
           <Bars3Icon
@@ -35,15 +41,15 @@ export default function BusinessHeader({ business }: IProps) {
       >
         <Text style={styles.update_button_text}>Update</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    marginBottom: 20,
-    paddingHorizontal: 15,
+    marginBottom: 10,
+    marginHorizontal: 15,
     alignItems: 'center',
     justifyContent: 'space-between',
   },

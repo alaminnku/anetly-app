@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, Text, StyleSheet, View } from 'react-native';
 import LottieView from 'lottie-react-native';
 import { useIsFocused, useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
@@ -31,7 +31,7 @@ export default function OrderScreen() {
   }, []);
 
   return (
-    <SafeAreaView style={styles.order}>
+    <View style={styles.container}>
       <LottieView
         autoPlay
         loop
@@ -44,12 +44,12 @@ export default function OrderScreen() {
       </Text>
 
       <Progress.Circle color={colors.primary} indeterminate={true} size={60} />
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  order: {
+  container: {
     flex: 1,
     padding: 15,
     alignItems: 'center',

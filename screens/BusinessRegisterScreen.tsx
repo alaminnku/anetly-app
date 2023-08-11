@@ -56,7 +56,7 @@ export default function BusinessRegisterScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.register}>
+    <View style={styles.register}>
       <MenuHeader title='Business sign up' />
 
       <View style={styles.form_item}>
@@ -126,7 +126,7 @@ export default function BusinessRegisterScreen() {
       <SubmitButton handleSubmit={handleBusinessRegister} />
 
       <NavigateToLogin />
-    </SafeAreaView>
+    </View>
   );
 }
 

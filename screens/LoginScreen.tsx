@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
+  ScrollView,
 } from 'react-native';
 import { ArrowLeftIcon } from 'react-native-heroicons/outline';
 import { axiosInstance } from '../config/axios';
@@ -14,6 +15,7 @@ import { useUser } from '../contexts/user';
 import { setItemAsync } from 'expo-secure-store';
 import SubmitButton from '@components/layout/SubmitButton';
 import { colors } from '@constants/colors';
+import GenericHeader from '@components/layout/GenericHeader';
 
 export default function LoginScreen() {
   // Hooks
@@ -59,13 +61,8 @@ export default function LoginScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.login}>
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.back_button} onPress={() => goBack()}>
-          <ArrowLeftIcon color={colors.primary} size={20} />
-        </TouchableOpacity>
-        <Text style={styles.header_text}>Login</Text>
-      </View>
+    <View style={styles.login}>
+      <GenericHeader title='Login' />
 
       <View style={styles.form_item}>
         <Text style={styles.label}>Email address</Text>
@@ -100,7 +97,7 @@ export default function LoginScreen() {
       </View>
 
       <SubmitButton handleSubmit={handleLogin} />
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -110,58 +107,23 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
 
-  header: {
-    marginBottom: 20,
-    paddingHorizontal: 15,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-
-  back_button: {
-    borderRadius: 100,
-    width: 40,
-    height: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.almostWhite,
-  },
-
-  header_text: {
-    flex: 1,
-    fontSize: 24,
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-
   form_item: {
     marginBottom: 20,
-    paddingHorizontal: 15,
+    marginHorizontal: 15,
   },
 
   label: {
     fontSize: 17,
     marginBottom: 15,
+    fontWeight: '500',
   },
 
   input: {
     padding: 15,
+    fontSize: 16,
+    color: 'gray',
     borderWidth: 2,
     borderRadius: 10,
-    borderColor: '#f3f4f6',
-  },
-
-  submit_button: {
-    marginHorizontal: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-    borderRadius: 10,
-    backgroundColor: '#2dd4bf',
-  },
-
-  button_text: {
-    fontSize: 18,
-    color: 'white',
-    fontWeight: '600',
+    borderColor: colors.borderColor,
   },
 });

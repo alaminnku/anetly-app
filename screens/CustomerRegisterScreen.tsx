@@ -56,7 +56,7 @@ export default function CustomerRegisterScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.register}>
+    <View style={styles.register}>
       <MenuHeader title='User sign up' />
 
       <View style={styles.form_item}>
@@ -126,7 +126,7 @@ export default function CustomerRegisterScreen() {
       <SubmitButton handleSubmit={handleCustomerRegister} />
 
       <NavigateToLogin />
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
 
   form_item: {
     marginBottom: 20,
-    paddingHorizontal: 15,
+    marginHorizontal: 15,
   },
 
   label: {

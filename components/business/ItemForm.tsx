@@ -61,7 +61,7 @@ export default function ItemForm() {
   }
 
   return (
-    <View style={styles.container}>
+    <View>
       <View style={styles.form_item}>
         <Text style={styles.label}>Name</Text>
         <TextInput
@@ -116,12 +116,9 @@ export default function ItemForm() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 15,
-  },
-
   form_item: {
     marginBottom: 20,
+    paddingHorizontal: 15,
   },
 
   label: {

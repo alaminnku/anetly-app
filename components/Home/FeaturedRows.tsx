@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import FeaturedRow from './FeaturedRow';
 import sanityClient from '@config/sanity';
 import { IRestaurant } from '../../types';
+import { View } from 'react-native';
 
 interface IFeaturedCategory {
   _id: string;
@@ -37,7 +38,7 @@ export default function FeaturedRows() {
   }, []);
 
   return (
-    <>
+    <View style={{ marginBottom: 15 }}>
       {featuredCategories.map((featuredCategory) => (
         <FeaturedRow
           key={featuredCategory._id}
@@ -46,6 +47,6 @@ export default function FeaturedRows() {
           restaurants={featuredCategory.restaurants}
         />
       ))}
-    </>
+    </View>
   );
 }

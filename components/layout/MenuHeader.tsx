@@ -1,6 +1,12 @@
 import { colors } from '@constants/colors';
 import { DrawerActions, useNavigation } from '@react-navigation/native';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 import { Bars3Icon } from 'react-native-heroicons/outline';
 
 interface IProps {
@@ -12,21 +18,22 @@ export default function MenuHeader({ title }: IProps) {
   const { dispatch } = useNavigation();
 
   return (
-    <View style={styles.header}>
+    <SafeAreaView style={styles.container}>
       <TouchableOpacity onPress={() => dispatch(DrawerActions.openDrawer())}>
         <Bars3Icon style={styles.menu_icon} color={colors.primary} size={30} />
       </TouchableOpacity>
+
       <Text style={styles.header_text}>{title}</Text>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  header: {
+  container: {
+    marginBottom: 20,
     alignItems: 'center',
     flexDirection: 'row',
-    marginBottom: 20,
-    paddingHorizontal: 15,
+    marginHorizontal: 15,
   },
 
   menu_icon: {
