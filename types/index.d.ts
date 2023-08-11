@@ -101,7 +101,7 @@ export interface IBasketContext {
   basketQuantityTotal: number;
 }
 
-export interface IIitem {
+export interface IItem {
   _id: string;
   name: string;
   image: string;

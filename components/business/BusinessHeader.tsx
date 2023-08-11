@@ -17,9 +17,9 @@ export default function BusinessHeader({ business }: IProps) {
       <View style={styles.business_details}>
         <TouchableOpacity onPress={() => dispatch(DrawerActions.openDrawer())}>
           <Bars3Icon
+            size={30}
             style={styles.menu_icon}
             color={colors.primary}
-            size={30}
           />
         </TouchableOpacity>
 
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 100,
     borderColor: 'transparent',
-    backgroundColor: colors.primary,
+    backgroundColor: colors.secondary,
   },
 
   update_button_text: {

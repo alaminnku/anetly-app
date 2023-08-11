@@ -38,7 +38,7 @@ export default function BusinessForm() {
   async function handleBusinessFormSubmit() {
     try {
       const response = await axiosInstance.patch(
-        '/businesses/add',
+        '/business/add',
         {
           ...formData,
         },

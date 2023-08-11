@@ -1,10 +1,12 @@
+import { SafeAreaView } from 'react-native';
 import ItemForm from '@components/business/ItemForm';
-import { View, Text } from 'react-native';
+import GenericHeader from '@components/layout/GenericHeader';
 
 export default function UpdateItem() {
   return (
-    <View>
+    <SafeAreaView>
+      <GenericHeader title='Update item' />
       <ItemForm />
-    </View>
+    </SafeAreaView>
   );
 }

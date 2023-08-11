@@ -1,5 +1,6 @@
 import BusinessForm from '@components/business/BusinessForm';
 import BusinessHeader from '@components/business/BusinessHeader';
+import Item from '@components/business/Item';
 import MenuHeader from '@components/layout/MenuHeader';
 import { colors } from '@constants/colors';
 import { useUser } from '@contexts/user';
@@ -31,8 +32,12 @@ export default function BusinessScreen() {
             style={styles.add_item_button}
             onPress={() => navigate('AddItem')}
           >
-            <Text style={styles.add_item_text}>Add item</Text>
+            <Text style={styles.add_item_text}>+ Add item</Text>
           </TouchableOpacity>
+
+          {user.business.items?.map((item) => (
+            <Item key={item._id} item={item} />
+          ))}
         </>
       ) : (
         <>
@@ -52,7 +57,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.green,
   },
 
   add_item_text: {

@@ -17,8 +17,8 @@ export default function GenericHeader({ title }: IProps) {
       <TouchableOpacity onPress={() => goBack()}>
         <ArrowLeftCircleIcon
           size={30}
+          color={colors.primary}
           style={{ marginRight: 15 }}
-          color={colors.secondary}
         />
       </TouchableOpacity>
 

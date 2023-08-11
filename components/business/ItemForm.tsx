@@ -1,10 +1,17 @@
 import SubmitButton from '@components/layout/SubmitButton';
+import { axiosInstance } from '@config/axios';
 import { colors } from '@constants/colors';
-import { useState } from 'react';
+import { useUser } from '@contexts/user';
+import { useIsFocused, useNavigation } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { CustomAxiosError, IItem } from 'types';
 
 export default function ItemForm() {
   // Hooks
+  const isFocused = useIsFocused();
+  const { goBack } = useNavigation();
+  const { user, token, setUser } = useUser();
   const [formData, setFormData] = useState({
     name: '',
     price: '',
@@ -12,12 +19,45 @@ export default function ItemForm() {
     description: '',
   });
 
+  useEffect(() => {}, [user, isFocused]);
+
   // Destructure data
   const { name, price, image, description } = formData;
 
   // Handle add item
   async function addItem() {
-    console.log(formData);
+    try {
+      // Make request to the backend
+      const response = await axiosInstance.patch(
+        '/business/add-item',
+        { ...formData },
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+
+      // Get items
+      const items: IItem[] = response.data.items;
+
+      // Update state
+      setUser(
+        (prevState) =>
+          prevState && {
+            ...prevState,
+            business: prevState.business && {
+              ...prevState.business,
+              items: items,
+            },
+          }
+      );
+
+      // Go back to business page
+      goBack();
+    } catch (err) {
+      console.log((err as CustomAxiosError).response?.data.message);
+    }
   }
 
   return (

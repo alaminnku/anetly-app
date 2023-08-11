@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 18,
     borderRadius: 10,
-    backgroundColor: colors.primary,
+    backgroundColor: colors.secondary,
   },
 
   button_text: {
