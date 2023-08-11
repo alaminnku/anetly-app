@@ -46,13 +46,13 @@ export default function DrawerNavigator() {
                 }}
               />
 
-              <Drawer.Screen
+              {/* <Drawer.Screen
                 name='Items'
                 component={HomeScreen}
                 options={{
                   drawerIcon: ({ color }) => <HomeIcon color={color} />,
                 }}
-              />
+              /> */}
             </>
           ) : (
             <>

@@ -15,7 +15,6 @@ export default function SubmitButton({ handleSubmit }: IProps) {
 
 const styles = StyleSheet.create({
   submit_button: {
-    marginHorizontal: 15,
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 18,

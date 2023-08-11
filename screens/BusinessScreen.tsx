@@ -1,16 +1,18 @@
-import AddBusiness from '@components/business/AddBusiness';
-import BusinessDetails from '@components/business/BusinessDetails';
+import BusinessForm from '@components/business/BusinessForm';
+import BusinessHeader from '@components/business/BusinessHeader';
 import MenuHeader from '@components/layout/MenuHeader';
+import { colors } from '@constants/colors';
 import { useUser } from '@contexts/user';
 import { useIsFocused, useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
-import { View, Text, SafeAreaView } from 'react-native';
+import { Text, SafeAreaView, StyleSheet } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function BusinessScreen() {
   // Hooks
   const isFocused = useIsFocused();
-  const { goBack } = useNavigation();
   const { user, token } = useUser();
+  const { goBack, navigate } = useNavigation();
 
   // Handle navigation
   useEffect(() => {
@@ -23,15 +25,39 @@ export default function BusinessScreen() {
     <SafeAreaView>
       {user?.business ? (
         <>
-          <MenuHeader title={user.business.name} />
-          <BusinessDetails />
+          <BusinessHeader business={user.business} />
+
+          <TouchableOpacity
+            style={styles.add_item_button}
+            onPress={() => navigate('AddItem')}
+          >
+            <Text style={styles.add_item_text}>Add item</Text>
+          </TouchableOpacity>
         </>
       ) : (
         <>
-          <MenuHeader title='Business' />
-          <AddBusiness />
+          <MenuHeader title='Add business' />
+          <BusinessForm />
         </>
       )}
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  add_item_button: {
+    padding: 18,
+    margin: 15,
+    borderRadius: 8,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.secondary,
+  },
+
+  add_item_text: {
+    fontSize: 22,
+    fontWeight: '500',
+    color: colors.almostWhite,
+  },
+});

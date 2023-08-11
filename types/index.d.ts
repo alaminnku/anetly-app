@@ -8,6 +8,9 @@ export type MainParamList = {
   Order: undefined;
   Delivery: undefined;
   Login: undefined;
+  UpdateBusiness: undefined;
+  AddItem: undefined;
+  UpdateItem: undefined;
 };
 
 export type DrawerParamList = {
@@ -99,6 +102,7 @@ export interface IBasketContext {
 }
 
 export interface IIitem {
+  _id: string;
   name: string;
   image: string;
   price: number;

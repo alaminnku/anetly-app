@@ -36,6 +36,5 @@ const styles = StyleSheet.create({
   header_text: {
     fontSize: 24,
     fontWeight: '600',
-    textAlign: 'center',
   },
 });
