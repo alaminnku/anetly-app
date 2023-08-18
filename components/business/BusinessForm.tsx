@@ -44,7 +44,7 @@ export default function BusinessForm() {
         },
         {
           headers: {
-            Authorization: token,
+            Authorization: `Bearer ${token}`,
           },
         }
       );

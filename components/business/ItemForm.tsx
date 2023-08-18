@@ -45,7 +45,7 @@ export default function ItemForm({ item }: IProps) {
         { ...formData },
         {
           headers: {
-            Authorization: token,
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -81,7 +81,7 @@ export default function ItemForm({ item }: IProps) {
         { ...formData },
         {
           headers: {
-            Authorization: token,
+            Authorization: `Bearer ${token}`,
           },
         }
       );

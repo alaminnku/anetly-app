@@ -1,6 +1,6 @@
 import { useState, createContext, useContext, useEffect } from 'react';
 import {
-  AxiosError,
+  CustomAxiosError,
   IContextProviderProps,
   IUser,
   IUserContext,
@@ -35,7 +35,7 @@ export default function UserProvider({ children }: IContextProviderProps) {
       // Make request to the backend
       const response = await axiosInstance.get('/users/me', {
         headers: {
-          Authorization: `${token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
 
@@ -43,7 +43,7 @@ export default function UserProvider({ children }: IContextProviderProps) {
       setUser(response.data);
     } catch (error) {
       // Type error
-      const err = error as AxiosError;
+      const err = error as CustomAxiosError;
 
       // Log error
       console.log(err);
