@@ -8,7 +8,7 @@ import DrawerNavigator from './DrawerNavigator';
 import LoginScreen from '@screens/LoginScreen';
 import UpdateBusinessScreen from '@screens/UpdateBusinessScreen';
 import AddItemScreen from '@screens/AddItemScreen';
-import UpdateItem from '@screens/UpdateItem';
+import UpdateItem from '@screens/UpdateItemScreen';
 
 // Create stack
 const Stack = createNativeStackNavigator<MainParamList>();

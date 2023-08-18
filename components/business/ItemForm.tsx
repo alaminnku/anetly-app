@@ -7,11 +7,15 @@ import { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { CustomAxiosError, IItem } from 'types';
 
-export default function ItemForm() {
+interface IProps {
+  item?: IItem;
+}
+
+export default function ItemForm({ item }: IProps) {
   // Hooks
   const isFocused = useIsFocused();
   const { goBack } = useNavigation();
-  const { user, token, setUser } = useUser();
+  const { token, setUser } = useUser();
   const [formData, setFormData] = useState({
     name: '',
     price: '',
@@ -19,7 +23,15 @@ export default function ItemForm() {
     description: '',
   });
 
-  useEffect(() => {}, [user, isFocused]);
+  useEffect(() => {
+    if (item) {
+      // Remove id
+      const { _id, ...itemWithoutId } = item;
+
+      // Update state
+      setFormData({ ...itemWithoutId, price: itemWithoutId.price.toString() });
+    }
+  }, [item, isFocused]);
 
   // Destructure data
   const { name, price, image, description } = formData;
@@ -30,6 +42,42 @@ export default function ItemForm() {
       // Make request to the backend
       const response = await axiosInstance.patch(
         '/business/add-item',
+        { ...formData },
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+
+      // Get items
+      const items: IItem[] = response.data.items;
+
+      // Update state
+      setUser(
+        (prevState) =>
+          prevState && {
+            ...prevState,
+            business: prevState.business && {
+              ...prevState.business,
+              items: items,
+            },
+          }
+      );
+
+      // Go back to business page
+      goBack();
+    } catch (err) {
+      console.log((err as CustomAxiosError).response?.data.message);
+    }
+  }
+
+  // Handle update item
+  async function updateItem() {
+    try {
+      // Make request to the backend
+      const response = await axiosInstance.patch(
+        `/business/update-item/${item?._id}`,
         { ...formData },
         {
           headers: {
@@ -110,7 +158,7 @@ export default function ItemForm() {
         />
       </View>
 
-      <SubmitButton handleSubmit={addItem} />
+      <SubmitButton handleSubmit={item ? updateItem : addItem} />
     </View>
   );
 }

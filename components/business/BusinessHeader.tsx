@@ -36,10 +36,10 @@ export default function BusinessHeader({ business }: IProps) {
       </View>
 
       <TouchableOpacity
-        style={styles.update_button}
+        style={styles.edit_button}
         onPress={() => navigate('UpdateBusiness')}
       >
-        <Text style={styles.update_button_text}>Update</Text>
+        <Text style={styles.edit_button_text}>Edit</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     color: colors.gray,
   },
 
-  update_button: {
+  edit_button: {
     borderWidth: 1,
     paddingHorizontal: 16,
     paddingVertical: 8,
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.secondary,
   },
 
-  update_button_text: {
+  edit_button_text: {
     fontWeight: '600',
     fontSize: 16,
     color: colors.white,

@@ -7,6 +7,7 @@ export default function AddItemScreen() {
   return (
     <View style={{ flex: 1, backgroundColor: colors.white }}>
       <GenericHeader title='Add item' />
+
       <ItemForm />
     </View>
   );

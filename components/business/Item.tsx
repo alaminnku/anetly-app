@@ -1,5 +1,7 @@
 import { colors } from '@constants/colors';
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { IItem } from 'types';
 
 interface IProps {
@@ -7,16 +9,24 @@ interface IProps {
 }
 
 export default function Item({ item }: IProps) {
-  return (
-    <View style={styles.container}>
-      <View>
-        <Text style={styles.title}>{item.name}</Text>
-        <Text style={styles.description}>{item.description}</Text>
-        <Text style={styles.price}>Tk {item.price}</Text>
-      </View>
+  // Hooks
+  const { navigate } = useNavigation();
 
-      <Image style={styles.image} source={require('../../assets/sushi.jpg')} />
-    </View>
+  return (
+    <TouchableOpacity onPress={() => navigate('UpdateItem', { item })}>
+      <View style={styles.container}>
+        <View>
+          <Text style={styles.title}>{item.name}</Text>
+          <Text style={styles.description}>{item.description}</Text>
+          <Text style={styles.price}>Tk {item.price}</Text>
+        </View>
+
+        <Image
+          style={styles.image}
+          source={require('../../assets/sushi.jpg')}
+        />
+      </View>
+    </TouchableOpacity>
   );
 }
 

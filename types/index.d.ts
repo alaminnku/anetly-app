@@ -10,7 +10,7 @@ export type MainParamList = {
   Login: undefined;
   UpdateBusiness: undefined;
   AddItem: undefined;
-  UpdateItem: undefined;
+  UpdateItem: { item: IItem };
 };
 
 export type DrawerParamList = {
@@ -105,7 +105,7 @@ export interface IItem {
   _id: string;
   name: string;
   image: string;
-  price: number;
+  price: string;
   description: string;
 }
 
