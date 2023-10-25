@@ -1,6 +1,6 @@
 import { axiosInstance } from '@config/axios';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { IBusiness, IContextProviderProps } from 'types';
+import { IBusiness, IContextProviderProps } from 'index';
 import { useUser } from './user';
 
 // Create context

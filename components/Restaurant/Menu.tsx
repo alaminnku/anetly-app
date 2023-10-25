@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
-import { IBasketRestaurant, IDish } from '../../types';
+import { IBasketRestaurant, IDish } from '../..';
 import Dish from './Dish';
 import { colors } from '@constants/colors';
 

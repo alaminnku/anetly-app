@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
 import Restaurants from './Restaurants';
-import { IRestaurant } from '../../types';
+import { IRestaurant } from '../..';
 import { colors } from '@constants/colors';
 
 interface IFeaturedRowProps {

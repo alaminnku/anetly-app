@@ -8,7 +8,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 import { Bars3Icon } from 'react-native-heroicons/outline';
-import { IBusiness } from 'types';
+import { IBusiness } from 'index';
 
 interface IProps {
   business: IBusiness;

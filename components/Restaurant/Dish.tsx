@@ -6,7 +6,7 @@ import {
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
-import { IBasketRestaurant, IDish } from '../../types';
+import { IBasketRestaurant, IDish } from '../..';
 import { urlFor } from '@config/sanity';
 import { useEffect, useState } from 'react';
 import { MinusIcon, PlusIcon } from 'react-native-heroicons/solid';

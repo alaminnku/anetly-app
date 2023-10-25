@@ -9,7 +9,7 @@ import { axiosInstance } from '@config/axios';
 import { useUser } from '@contexts/user';
 import { setItemAsync } from 'expo-secure-store';
 import { useIsFocused, useNavigation } from '@react-navigation/native';
-import { CustomAxiosError } from 'types';
+import { CustomAxiosError } from 'index';
 
 export default function BusinessRegisterScreen() {
   // Hooks

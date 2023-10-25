@@ -5,7 +5,7 @@ import { useUser } from '@contexts/user';
 import { useIsFocused, useNavigation } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
-import { CustomAxiosError, IItem } from 'types';
+import { CustomAxiosError, IItem } from 'index';
 
 interface IProps {
   item?: IItem;

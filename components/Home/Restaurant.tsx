@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { StarIcon } from 'react-native-heroicons/solid';
 import { MapPinIcon } from 'react-native-heroicons/outline';
-import { IRestaurant } from '../../types';
+import { IRestaurant } from '../..';
 import { urlFor } from '@config/sanity';
 import { useNavigation } from '@react-navigation/native';
 import { colors } from '@constants/colors';

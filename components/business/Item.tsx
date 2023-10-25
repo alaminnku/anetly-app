@@ -2,7 +2,7 @@ import { colors } from '@constants/colors';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { IItem } from 'types';
+import { IItem } from 'index';
 
 interface IProps {
   item: IItem;

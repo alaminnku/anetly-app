@@ -5,7 +5,7 @@ import {
   IDish,
   IBasket,
   IBasketRestaurant,
-} from '../types';
+} from '..';
 
 // Create context
 const BasketContext = createContext({} as IBasketContext);

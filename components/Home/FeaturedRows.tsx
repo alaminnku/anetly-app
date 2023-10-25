@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import FeaturedRow from './FeaturedRow';
 import sanityClient from '@config/sanity';
-import { IRestaurant } from '../../types';
+import { IRestaurant } from '../..';
 import { View } from 'react-native';
 
 interface IFeaturedCategory {

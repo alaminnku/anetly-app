@@ -1,6 +1,6 @@
-import { ScrollView, StyleSheet } from "react-native";
-import Restaurant from "./Restaurant";
-import { IRestaurant } from "../../types";
+import { ScrollView, StyleSheet } from 'react-native';
+import Restaurant from './Restaurant';
+import { IRestaurant } from '../..';
 
 interface IRestaurantsProps {
   restaurants: IRestaurant[];

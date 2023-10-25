@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ScrollView } from 'react-native';
-import { MainParamList } from '../types';
+import { MainParamList } from '..';
 import RestaurantHeader from '../components/restaurant/RestaurantHeader';
 import RestaurantDetails from '../components/restaurant/RestaurantDetails';
 import Allergy from '../components/restaurant/Allergy';

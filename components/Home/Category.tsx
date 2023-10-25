@@ -1,5 +1,5 @@
 import { Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import { ICategory } from '../../types';
+import { ICategory } from '../..';
 import { urlFor } from '@config/sanity';
 import { colors } from '@constants/colors';
 

@@ -1,5 +1,5 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { DrawerParamList } from '../types';
+import { DrawerParamList } from '..';
 import DrawerContent from '../components/layout/DrawerContent';
 import {
   BuildingStorefrontIcon,
@@ -14,6 +14,7 @@ import HomeScreen from '../screens/HomeScreen';
 import { useUser } from '../contexts/user';
 import { colors } from '@constants/colors';
 import BusinessScreen from '@screens/BusinessScreen';
+import SupportScreen from '@screens/SupportScreen';
 
 // Create drawer
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -102,7 +103,7 @@ export default function DrawerNavigator() {
       )}
       <Drawer.Screen
         name='Support'
-        component={HomeScreen}
+        component={SupportScreen}
         options={{
           drawerIcon: ({ color }) => <ChatBubbleLeftRightIcon color={color} />,
         }}

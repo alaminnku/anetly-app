@@ -4,7 +4,7 @@ import {
   IContextProviderProps,
   IUser,
   IUserContext,
-} from '../types';
+} from '..';
 import * as SecureStore from 'expo-secure-store';
 import { axiosInstance } from '@config/axios';
 

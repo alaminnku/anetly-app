@@ -2,7 +2,7 @@ import { ScrollView, StyleSheet } from 'react-native';
 import Category from './Category';
 import { useEffect, useState } from 'react';
 import sanityClient from '@config/sanity';
-import { ICategory } from '../../types';
+import { ICategory } from '../..';
 
 export default function Categories() {
   const [categories, setCategories] = useState<ICategory[]>([]);

@@ -11,6 +11,7 @@ export type MainParamList = {
   UpdateBusiness: undefined;
   AddItem: undefined;
   UpdateItem: { item: IItem };
+  Support: undefined;
 };
 
 export type DrawerParamList = {
